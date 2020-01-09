@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import ClosetDetails from "@/components/ClosetDetails"
+import ClosetDetails from "@/components/closet_items/ClosetDetails"
 
 export default {
     components:{
@@ -46,7 +46,7 @@ export default {
             border: 1px solid $primary_color1;
             cursor: pointer; 
             padding: 0.3rem;
-            margin-right: 0.25rem;
+            margin-right: 0.4rem;
             transition: 0.3s;
             font-size: 1rem;
             font-weight: 250;

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ViewCloset from '@/components/ViewCloset'
+import ViewCloset from '@/components/closet_items/ViewCloset'
 
 export default {
     components: {

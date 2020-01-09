@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import ClothingCard from '@/components/ClothingCard'
+import ClothingCard from '@/components/closet_items/ClothingCard'
 
 export default {
     components:{
@@ -43,7 +43,9 @@ export default {
             margin: 0.5rem;
             background-color: $card_color;
             border-radius: 0.75rem;
+            cursor: pointer; 
         }
+
     }
 }
 </style>
