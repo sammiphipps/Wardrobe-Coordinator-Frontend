@@ -25,8 +25,11 @@ export default {
 @import '@/styles/_colors.scss';
 
 .closet-details {
-    
-    background-color: $primary-color2;
+
+    background-color: $primary-color1;
+    width: 40%;
+    height: 90%;
+    overflow: auto;
 
     ul {
         list-style: none;
@@ -38,7 +41,7 @@ export default {
         li{
             padding: 0.5rem;
             margin: 0.5rem;
-            background-color: darkgray;
+            background-color: $card_color;
             border-radius: 0.75rem;
         }
     }

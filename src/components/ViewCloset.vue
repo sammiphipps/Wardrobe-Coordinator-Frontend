@@ -1,5 +1,5 @@
 <template>
-    <div class="view-closet">
+    <div class="closet">
 
     <!-- Tabs for Tops, Bottoms and possibly Accessories, which match up to the Clothing Categories --> 
         <div class="tabs">
@@ -33,28 +33,35 @@ export default {
 <style lang="scss">
 @import '@/styles/_colors.scss';
 
-    .tab {
-        overflow:hidden;
-    }
+    .closet {
+        height: 100%;
 
-    .tablink {
-        border-top-left-radius: 26%;
-        border-top-right-radius: 26%; 
-        border: 1px solid $primary_color2;
-        cursor: pointer; 
-        padding: 0.3rem;
-        margin-right: 0.25rem;
-        transition: 0.3s;
-        font-size: 0.75rem;
-        background-color: $primary_color2;
-    }
+        .tab {
+            overflow:hidden;
+        }
 
-    .tablink:hover{
-        background-color: #ddd;
-    }
+        .tablink {
+            border-top-left-radius: 26%;
+            border-top-right-radius: 26%; 
+            border: 1px solid $primary_color1;
+            cursor: pointer; 
+            padding: 0.3rem;
+            margin-right: 0.25rem;
+            transition: 0.3s;
+            font-size: 1rem;
+            font-weight: 250;
+            font-family: 'Cormorant', serif;
+            background-color: $primary_color1;
+        }
 
-    .tablink:active{
-        background-colo: #ccc;
+        .tablink:hover{
+            background-color: #ddd;
+        }
+
+        .tablink:active{
+            background-colo: #ccc;
+        }
+
     }
 
 </style>
