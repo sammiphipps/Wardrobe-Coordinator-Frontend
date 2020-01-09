@@ -10,5 +10,10 @@
 </template>
 
 <style lang="scss">
+@import '@/styles/_colors.scss';
 
+  body{
+    background-color: $primary_color1;
+  }
+  
 </style>

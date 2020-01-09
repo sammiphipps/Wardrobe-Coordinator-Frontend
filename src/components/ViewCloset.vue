@@ -31,6 +31,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/_colors.scss';
+
     .tab {
         overflow:hidden;
     }
@@ -38,13 +40,13 @@ export default {
     .tablink {
         border-top-left-radius: 26%;
         border-top-right-radius: 26%; 
-        border: 1px solid lightgray;
+        border: 1px solid $primary_color2;
         cursor: pointer; 
         padding: 0.3rem;
         margin-right: 0.25rem;
         transition: 0.3s;
         font-size: 0.75rem;
-        background-color: lightgray;
+        background-color: $primary_color2;
     }
 
     .tablink:hover{

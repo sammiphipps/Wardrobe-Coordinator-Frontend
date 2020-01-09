@@ -22,13 +22,25 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/_colors.scss';
+
 .closet-details {
+    
+    background-color: $primary-color2;
+
     ul {
         list-style: none;
         display: flex;
         flex-flow: row wrap;
         padding: 0;
         margin: 0;
+
+        li{
+            padding: 0.5rem;
+            margin: 0.5rem;
+            background-color: darkgray;
+            border-radius: 0.75rem;
+        }
     }
 }
 </style>
