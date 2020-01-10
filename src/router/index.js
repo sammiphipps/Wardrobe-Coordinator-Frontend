@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import ViewCloset from "@/views/ViewCloset"
-import OutfitArea from '@/views/OutfitArea'
+import Outfit from '@/views/Outfit'
 
 Vue.use(VueRouter)
 
@@ -14,7 +14,7 @@ const routes = [
     children: [{
       name: "outfit",
       path: "/outfit",
-      component: OutfitArea
+      component: Outfit
     }]
   }
 ]
