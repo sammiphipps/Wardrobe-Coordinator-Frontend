@@ -9,6 +9,14 @@
   </div>
 </template>
 
+<script>
+export default{
+  mounted(){
+      this.$store.dispatch("fetchClothingItems")
+  },
+}
+</script>
+
 <style lang="scss">
 @import '@/styles/_colors.scss';
 @import url('https://fonts.googleapis.com/css?family=Cormorant&display=swap');
@@ -23,7 +31,7 @@
     background-size:cover;
     font-family: 'Cormorant', serif;
     font-size: large;
-    height: 97%;
+    height: 90%;
 
     #app {
       height: 100%;

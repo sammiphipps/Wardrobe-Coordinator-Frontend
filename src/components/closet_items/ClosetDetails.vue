@@ -2,14 +2,20 @@
     <div class="closet-details">
         <ul>
             <li v-for="item in clothing_items" :key="item.id">
-                <ClothingCard :item="item" />
+                <router-link
+                    :to="{
+                        path: 'outfit'
+                    }"
+                >
+                    <ClothingCard @click.native="outfitSelection(item)" :item="item" />
+                </router-link>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
-import ClothingCard from '@/components/ClothingCard'
+import ClothingCard from '@/components/closet_items/ClothingCard'
 
 export default {
     components:{
@@ -17,6 +23,11 @@ export default {
     },
     props:{
         clothing_items: Array
+    },
+    methods: {
+        outfitSelection(item){
+            this.$emit("outfitSelection", item)
+        }
     }
 }
 </script>
@@ -27,8 +38,7 @@ export default {
 .closet-details {
 
     background-color: $primary-color1;
-    width: 40%;
-    height: 90%;
+    height: 96%;
     overflow: auto;
 
     ul {
@@ -43,7 +53,9 @@ export default {
             margin: 0.5rem;
             background-color: $card_color;
             border-radius: 0.75rem;
+            cursor: pointer; 
         }
+
     }
 }
 </style>

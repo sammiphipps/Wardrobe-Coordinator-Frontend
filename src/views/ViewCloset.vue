@@ -3,25 +3,21 @@
         <ViewCloset 
             :clothing_category_displayed="clothing_category_displayed"
             :clothing_items="clothing_items_by_category"
-            @changeClothingCategoryDisplayed="changeClothingCategoryDisplayed"
+            @changeClothingCategory="changeClothingCategory"
+            @outfitSelection="outfitSelection"
         />
+        <router-view />
     </div>
 </template>
 
 <script>
-import ViewCloset from '@/components/ViewCloset'
+import ViewCloset from '@/components/closet_items/ViewCloset'
 
 export default {
     components: {
         ViewCloset,
     },
-    mounted(){
-        this.$store.dispatch("fetchClothingItems")
-    },
     computed: {
-        clothing_items(){
-            return this.$store.state.clothing_items
-        },
         clothing_category_displayed(){
             return this.$store.state.clothing_category_displayed
         },
@@ -30,8 +26,11 @@ export default {
         }
     },
     methods: {
-        changeClothingCategoryDisplayed(new_clothing_category){
-            this.$store.dispatch("changeClothingCategoryDisplayed", new_clothing_category)
+        changeClothingCategory(new_clothing_category){
+            this.$store.dispatch("changeClothingCategory", new_clothing_category)
+        },
+        outfitSelection(item){
+            this.$store.dispatch("outfitSelected", item)
         }
     }
 }
@@ -41,6 +40,7 @@ export default {
 
     .view-closet{
         height: 100%;
+        display: flex;
     }
 
 </style>

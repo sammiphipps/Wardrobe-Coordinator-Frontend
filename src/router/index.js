@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import ViewCloset from "@/views/ViewCloset"
+import Outfit from '@/views/Outfit'
 
 Vue.use(VueRouter)
 
@@ -9,7 +10,12 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: ViewCloset
+    component: ViewCloset,
+    children: [{
+      name: "outfit",
+      path: "/outfit",
+      component: Outfit
+    }]
   }
 ]
 
