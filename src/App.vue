@@ -9,6 +9,14 @@
   </div>
 </template>
 
+<script>
+export default{
+  mounted(){
+      this.$store.dispatch("fetchClothingItems")
+  },
+}
+</script>
+
 <style lang="scss">
 @import '@/styles/_colors.scss';
 @import url('https://fonts.googleapis.com/css?family=Cormorant&display=swap');

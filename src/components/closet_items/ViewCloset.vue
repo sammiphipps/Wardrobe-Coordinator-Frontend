@@ -3,11 +3,17 @@
 
     <!-- Tabs for Tops, Bottoms and possibly Accessories, which match up to the Clothing Categories --> 
         <div class="tabs">
-            <button class="tablink" @click="changeClothingCategoryDisplayed('top')">Tops</button>
-            <button class="tablink" @click="changeClothingCategoryDisplayed('bottom')">Bottoms</button>
+            <button 
+                class="tablink" 
+                @click="changeClothingCategory('top')"
+            >Tops</button>
+            <button 
+                class="tablink" 
+                @click="changeClothingCategory('bottom')"
+            >Bottoms</button>
         </div>
 
-        <ClosetDetails :clothing_items="clothing_items" />
+        <ClosetDetails @outfitSelection="outfitSelection" :clothing_items="clothing_items" />
     </div>
 </template>
 
@@ -23,8 +29,11 @@ export default {
         clothing_items: Array,
     },
     methods: {
-        changeClothingCategoryDisplayed(new_clothing_category){
-            this.$emit("changeClothingCategoryDisplayed", new_clothing_category)
+        changeClothingCategory(new_clothing_category){
+            this.$emit("changeClothingCategory", new_clothing_category)
+        },
+        outfitSelection(item){
+            this.$emit("outfitSelection", item)
         }
     }
 }

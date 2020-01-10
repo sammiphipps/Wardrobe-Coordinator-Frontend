@@ -6,19 +6,26 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     clothing_items : [],
-    clothing_category_displayed: "top"
+    clothing_category_displayed : "top",
+    outfit : {}
   },
   getters: {
     clothing_items_by_category: (state) => (clothing_category) => {
-      return state.clothing_items.filter(clothing_item => clothing_item.clothing_category.name == clothing_category)
+      return state.clothing_items.filter(item => item.clothing_category.name == clothing_category)
+    },
+    clothing_item: (state) => (id) => {
+      return state.clothing_items.find(item => item.id == id)
     }
   },
   mutations: {
     setClothingItems(state, clothing_items){
       state.clothing_items = clothing_items
     }, 
-    changeClothingCategoryDisplayed(state, new_clothing_category){
-      state.clothing_category_displayed = new_clothing_category
+    setClothingCategoryDisplayed(state, new_category){
+      state.clothing_category_displayed = new_category
+    },
+    setOutfit(state, payload){
+      state.outfit[payload.category] = payload.id
     }
   },
   actions: {
@@ -29,8 +36,25 @@ export default new Vuex.Store({
           commit("setClothingItems", clothing_items)
         })
     },
-    changeClothingCategoryDisplayed({commit}, new_clothing_category){
-      commit("changeClothingCategoryDisplayed", new_clothing_category)
+    changeClothingCategory({commit}, new_clothing_category){
+      commit("setClothingCategoryDisplayed", new_clothing_category)
+    },
+    outfitSelected({commit}, item){
+      if(item.clothing_type.includes("dress")){
+        commit("setOutfit", {
+          category: item.clothing_category.name,
+          id: item.id
+        })
+        commit("setOutfit", {
+          category: "bottom",
+          id: -1
+        })
+      } else {
+        commit("setOutfit", {
+          category: item.clothing_category.name,
+          id: item.id
+        })
+      }
     }
   },
   modules: {
