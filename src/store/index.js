@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     clothing_items : [],
     clothing_category_displayed : "top",
-    outfit : {}
+    top: {},
+    bottom: {}
   },
   getters: {
     clothing_items_by_category: (state) => (clothing_category) => {
@@ -24,8 +25,11 @@ export default new Vuex.Store({
     setClothingCategoryDisplayed(state, new_category){
       state.clothing_category_displayed = new_category
     },
-    setOutfit(state, payload){
-      state.outfit[payload.category] = payload.id
+    setTop(state, clothing_item){
+      state.top = clothing_item
+    },
+    setBottom(state, clothing_item){
+      state.bottom = clothing_item
     }
   },
   actions: {
@@ -40,20 +44,10 @@ export default new Vuex.Store({
       commit("setClothingCategoryDisplayed", new_clothing_category)
     },
     outfitSelected({commit}, item){
-      if(item.clothing_type.includes("dress")){
-        commit("setOutfit", {
-          category: item.clothing_category.name,
-          id: item.id
-        })
-        commit("setOutfit", {
-          category: "bottom",
-          id: -1
-        })
+      if(item.clothing_category.name == 'top'){
+        commit("setTop", item)
       } else {
-        commit("setOutfit", {
-          category: item.clothing_category.name,
-          id: item.id
-        })
+        commit("setBottom", item)
       }
     }
   },
