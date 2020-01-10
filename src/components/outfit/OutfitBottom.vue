@@ -25,7 +25,7 @@ export default {
         margin-top: 2%;
 
         img {
-            width: 40%;
+            width: 30%;
             height: auto;
         }
     }
