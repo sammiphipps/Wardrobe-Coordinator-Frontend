@@ -6,7 +6,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     clothing_items : [],
-    clothing_category_displayed : "top",
     top: {},
     bottom: {}
   },
@@ -22,9 +21,6 @@ export default new Vuex.Store({
     setClothingItems(state, clothing_items){
       state.clothing_items = clothing_items
     }, 
-    setClothingCategoryDisplayed(state, new_category){
-      state.clothing_category_displayed = new_category
-    },
     setTop(state, clothing_item){
       state.top = clothing_item
     },
@@ -39,9 +35,6 @@ export default new Vuex.Store({
         .then(clothing_items => {
           commit("setClothingItems", clothing_items)
         })
-    },
-    changeClothingCategory({commit}, new_clothing_category){
-      commit("setClothingCategoryDisplayed", new_clothing_category)
     },
     outfitSelected({commit}, item){
       if(item.clothing_category.name == 'top'){

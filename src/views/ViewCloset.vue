@@ -1,9 +1,7 @@
 <template>
     <div class="view-closet">
         <ViewCloset 
-            :clothing_category_displayed="clothing_category_displayed"
-            :clothing_items="clothing_items_by_category"
-            @changeClothingCategory="changeClothingCategory"
+            :clothing_items="clothing_items"
             @outfitSelection="outfitSelection"
         />
         <router-view />
@@ -18,17 +16,11 @@ export default {
         ViewCloset,
     },
     computed: {
-        clothing_category_displayed(){
-            return this.$store.state.clothing_category_displayed
-        },
-        clothing_items_by_category(){
-            return this.$store.getters.clothing_items_by_category(this.clothing_category_displayed)
+        clothing_items(){
+            return this.$store.state.clothing_items
         }
     },
     methods: {
-        changeClothingCategory(new_clothing_category){
-            this.$store.dispatch("changeClothingCategory", new_clothing_category)
-        },
         outfitSelection(item){
             this.$store.dispatch("outfitSelected", item)
         }

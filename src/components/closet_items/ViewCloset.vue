@@ -13,7 +13,7 @@
             >Bottoms</button>
         </div>
 
-        <ClosetDetails @outfitSelection="outfitSelection" :clothing_items="clothing_items" />
+        <ClosetDetails @outfitSelection="outfitSelection" :clothing_items="clothing_items_by_category" />
     </div>
 </template>
 
@@ -25,12 +25,21 @@ export default {
         ClosetDetails
     },
     props: {
-        clothing_category_displayed: String,
         clothing_items: Array,
+    },
+    data(){
+        return {
+            category: "top"
+        }
+    },
+    computed: {
+        clothing_items_by_category(){
+            return this.$store.getters.clothing_items_by_category(this.category)
+        }
     },
     methods: {
         changeClothingCategory(new_clothing_category){
-            this.$emit("changeClothingCategory", new_clothing_category)
+            this.category = new_clothing_category
         },
         outfitSelection(item){
             this.$emit("outfitSelection", item)
