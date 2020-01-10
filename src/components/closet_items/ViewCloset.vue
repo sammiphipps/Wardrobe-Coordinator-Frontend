@@ -44,6 +44,7 @@ export default {
 
     .closet {
         height: 100%;
+        width: 48%;
 
         .tab {
             overflow:hidden;

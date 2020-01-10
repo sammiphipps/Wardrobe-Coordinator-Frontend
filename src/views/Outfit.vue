@@ -26,12 +26,20 @@ export default {
 </script>
 
 <style lang="scss">
-.outfit{
-    margin-left: 2%;
-    margin-top: 3%;
-    display: flex;
-    flex-direction: column;
 
+    .outfit{
+        margin-left: 2%;
+        margin-top: 3%;
+        display: flex;
+        flex-direction: column;
+        height: 96%;
+        width: 48%;
 
-}
+        div:only-child{
+            img{
+                width: 40%;
+                height: 50%;
+            }
+        }
+    } 
 </style>

@@ -38,7 +38,7 @@ export default {
 .closet-details {
 
     background-color: $primary-color1;
-    height: 90%;
+    height: 96%;
     overflow: auto;
 
     ul {
