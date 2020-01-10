@@ -1,22 +1,19 @@
 <template>
     <div class="outfit">
-        <div v-if="top.image_url" class="top">
-            <img 
-                :src="top.image_url"
-                :alt="top.clothing_type"
-            />
-        </div>
-        <div v-if="bottom.image_url" class="bottom">
-            <img 
-                :src="bottom.image_url"
-                :alt="bottom.clothing_type"
-            />
-        </div>
+        <OutfitTop v-if="top.image_url" :top="top" />
+        <OutfitBottom v-if="bottom.image_url" :bottom="bottom" />
     </div>
 </template>
 
 <script>
+import OutfitTop from '@/components/outfit/OutfitTop'
+import OutfitBottom from '@/components/outfit/OutfitBottom'
+
 export default {
+    components:{
+        OutfitTop,
+        OutfitBottom
+    },
     computed:{
         top(){
             return this.$store.state.top
