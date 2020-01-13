@@ -59,7 +59,7 @@ export default {
             this.$emit("outfitSelection", item)
         },
         addItemClicked(){
-            this.$emit("addItemClicked")
+            this.$emit("addItemClicked", this.category)
         }
     }
 }

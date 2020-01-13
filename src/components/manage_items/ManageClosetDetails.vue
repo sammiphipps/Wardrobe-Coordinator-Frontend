@@ -2,10 +2,17 @@
     <div class="closet-details">
         <ul>
             <li v-for="item in clothing_items" :key="item.id">
-                <ClothingCard :item="item" />
+                <router-link :to="{
+                    path: '/manage_clothing', 
+                    query:{id: item.id}
+                }">
+                    <ClothingCard :item="item" />
+                </router-link>
             </li>
             <li class="add_item" v-on:click="addItemClicked">
-                <font-awesome-icon icon="plus" />
+                <span>
+                    <font-awesome-icon icon="plus" />
+                </span>
             </li>
         </ul>
     </div>
@@ -63,7 +70,14 @@ export default {
             height: fit-content;
             padding: 1rem;
             margin-left: 3.25rem;
+
+            span: {
+                width: 100%;
+                height: 100%;
+            }
         }
+
+
 
         .add_item:hover {
             opacity: 0.85;

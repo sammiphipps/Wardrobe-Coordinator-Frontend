@@ -8,29 +8,49 @@
             </div>
         </fieldset>
         <fieldset>
-            <label>Clothing Category:</label>
-            <select>
-                <option>Top</option>
-                <option>Bottom</option>
+            <label for="clothing_category">Clothing Category:</label>
+            <select
+                id="clothing_category"
+                name="clothing_category"
+            >
+                <option value="1">Top</option>
+                <option value="2">Bottom</option>
             </select>
         </fieldset>
         <fieldset>
-            <label>Image Url:</label>
-            <input type="text" />
+            <label for="image_url">Image Url:</label>
+            <input 
+                type="text" 
+                id="image_url"
+                name="image_url"
+            />
         </fieldset>
         <fieldset>
-            <label>Clothing Type:</label>
-            <input type="text" />
+            <label for="clothing_type">Clothing Type:</label>
+            <input 
+                type="text" 
+                id="clothing_type"
+                name="clothing_type"
+            />
         </fieldset>
         <fieldset>
-            <label>Color: </label>
-            <input type="text" />
+            <label for="color">Color: </label>
+            <input 
+                type="text" 
+                id="color"
+                name="color"
+            />
         </fieldset>
         <button type="submit">Add Clothing</button>
     </form>
 </template>
 
 <script>
+export default {
+    props:{
+        category: String
+    },
+}
 </script>
 
 <style lang="scss">

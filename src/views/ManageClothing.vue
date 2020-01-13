@@ -4,7 +4,7 @@
             @addItemClicked="addItemClicked" 
             :clothing_items="clothing_items"
         />
-        <ClothingForm v-if="showForm"/>
+        <ClothingForm v-if="showForm" :category="this.category"/>
     </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
     data(){
         return {
             showForm: false,
+            category: ""
         }
     },
     computed: {
@@ -28,8 +29,9 @@ export default {
         }
     },
     methods:{
-        addItemClicked(){
+        addItemClicked(category){
             this.showForm = true
+            this.category = category
         }
     }
 }
