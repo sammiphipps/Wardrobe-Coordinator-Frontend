@@ -8,10 +8,11 @@
             </div>
         </fieldset>
         <fieldset>
-            <label for="clothing_category">Clothing Category:</label>
+            <label for="category_id">Clothing Category:</label>
             <select
-                id="clothing_category"
-                name="clothing_category"
+                id="category_id"
+                name="category_id"
+                v-model.number="category_id"
             >
                 <option value="1">Top</option>
                 <option value="2">Bottom</option>
@@ -23,6 +24,7 @@
                 type="text" 
                 id="image_url"
                 name="image_url"
+                v-model="image_url"
             />
         </fieldset>
         <fieldset>
@@ -31,6 +33,7 @@
                 type="text" 
                 id="clothing_type"
                 name="clothing_type"
+                v-model="clothing_type"
             />
         </fieldset>
         <fieldset>
@@ -39,6 +42,7 @@
                 type="text" 
                 id="color"
                 name="color"
+                v-model="color"
             />
         </fieldset>
         <button type="submit">Add Clothing</button>
@@ -50,6 +54,14 @@ export default {
     props:{
         category: String
     },
+    data(){
+        return {
+            category_id: 1,
+            image_url: "",
+            clothing_type: "",
+            color: "",
+        }
+    }
 }
 </script>
 
