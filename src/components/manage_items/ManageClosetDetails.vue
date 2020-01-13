@@ -4,7 +4,7 @@
             <li v-for="item in clothing_items" :key="item.id">
                 <ClothingCard :item="item" />
             </li>
-            <li class="add_item">
+            <li class="add_item" v-on:click="addItemClicked">
                 <font-awesome-icon icon="plus" />
             </li>
         </ul>
@@ -22,7 +22,9 @@ export default {
         clothing_items: Array
     },
     methods: {
-
+        addItemClicked(){
+            this.$emit("addItemClicked")
+        }
     }
 }
 </script>

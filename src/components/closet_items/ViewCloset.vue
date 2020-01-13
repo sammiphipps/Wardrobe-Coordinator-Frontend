@@ -13,8 +13,16 @@
             >Bottoms</button>
         </div>
 
-        <ManageClosetDetails v-if="path == '/manage_clothing'" :clothing_items="clothing_items_by_category" />
-        <ClosetDetails v-else @outfitSelection="outfitSelection" :clothing_items="clothing_items_by_category" />
+        <ManageClosetDetails 
+            v-if="path == '/manage_clothing'" 
+            @addItemClicked="addItemClicked" 
+            :clothing_items="clothing_items_by_category" 
+        />
+        <ClosetDetails 
+            v-else 
+            @outfitSelection="outfitSelection" 
+            :clothing_items="clothing_items_by_category" 
+        />
     </div>
 </template>
 
@@ -49,6 +57,9 @@ export default {
         },
         outfitSelection(item){
             this.$emit("outfitSelection", item)
+        },
+        addItemClicked(){
+            this.$emit("addItemClicked")
         }
     }
 }

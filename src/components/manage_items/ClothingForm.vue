@@ -26,6 +26,7 @@
             <label>Color: </label>
             <input type="text" />
         </fieldset>
+        <button type="submit">Add Clothing</button>
     </form>
 </template>
 
@@ -48,7 +49,7 @@
         fieldset {
             border:none; 
             margin: 0; 
-            
+
             label {
                 display: inline-block;
                 width: 25%;
@@ -73,6 +74,13 @@
             span {
                 margin-left: 0.5rem;
             }
+        }
+
+        button {
+            width: fit-content;
+            padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+            align-self: center;
+            cursor: pointer;
         }
     } 
 </style>

@@ -1,7 +1,10 @@
 <template>
     <div class="manage_items">
-        <ViewCloset :clothing_items="clothing_items"/>
-        <ClothingForm />
+        <ViewCloset 
+            @addItemClicked="addItemClicked" 
+            :clothing_items="clothing_items"
+        />
+        <ClothingForm v-if="showForm"/>
     </div>
 </template>
 
@@ -14,11 +17,21 @@ export default {
         ViewCloset,
         ClothingForm
     },
+    data(){
+        return {
+            showForm: false,
+        }
+    },
     computed: {
         clothing_items(){
             return this.$store.state.clothing_items
         }
     },
+    methods:{
+        addItemClicked(){
+            this.showForm = true
+        }
+    }
 }
 
 </script>
