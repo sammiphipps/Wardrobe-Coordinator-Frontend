@@ -2,6 +2,14 @@
   <div id="app">
     <header>
       <h1>Closet Organizer</h1>
+
+      <nav>
+        <ul>
+          <li class="nav-link">Outfit</li>
+          <li class="nav-link">Manage Clothing</li>
+        </ul>
+      </nav>
+
     </header>
     <main>
       <router-view />
@@ -37,11 +45,33 @@ export default{
       height: 100%;
 
       header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
 
         h1{
           font-weight: 150;
         }
       
+        nav {
+
+          ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            margin: 0;
+
+            .nav-link {
+              padding: 0.5rem; 
+            }
+
+            .nav-link:hover {
+              color: $links_color;
+            }
+          }
+        }
       }
 
       main {
