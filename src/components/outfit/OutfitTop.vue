@@ -27,6 +27,10 @@ export default {
             width: 30%;
             height: auto;
         }
+
+        img:hover {
+            opacity: 1;
+        }
     }
 
 </style>
