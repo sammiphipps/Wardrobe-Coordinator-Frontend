@@ -2,13 +2,10 @@
     <div class="closet-details">
         <ul>
             <li v-for="item in clothing_items" :key="item.id">
-                <router-link
-                    :to="{
-                        name: 'outfit'
-                    }"
-                >
-                    <ClothingCard @click.native="outfitSelection(item)" :item="item" />
-                </router-link>
+                <ClothingCard :item="item" />
+            </li>
+            <li class="add_item">
+                <font-awesome-icon icon="plus" />
             </li>
         </ul>
     </div>
@@ -25,9 +22,7 @@ export default {
         clothing_items: Array
     },
     methods: {
-        outfitSelection(item){
-            this.$emit("outfitSelection", item)
-        }
+
     }
 }
 </script>
@@ -56,6 +51,21 @@ export default {
             cursor: pointer; 
         }
 
+        .add_item{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-self:center;
+            width: fit-content;
+            height: fit-content;
+            padding: 1rem;
+            margin-left: 3.25rem;
+        }
+
+        .add_item:hover {
+            opacity: 0.85;
+        }
     }
 }
 </style>
