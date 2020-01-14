@@ -1,18 +1,26 @@
 <template>
     <div class="closet-details">
         <ul>
-            <li v-for="item in clothing_items" :key="item.id">
+            <li 
+                v-for="item in clothing_items" 
+                :key="item.id" 
+                v-on:click="changeShowForm"
+            >
                 <router-link :to="{
-                    path: '/manage_clothing', 
-                    query:{id: item.id}
+                    name: 'edit clothing', 
+                    params: { id: item.id }
                 }">
                     <ClothingCard :item="item" />
                 </router-link>
             </li>
-            <li class="add_item" v-on:click="addItemClicked">
-                <span>
-                    <font-awesome-icon icon="plus" />
-                </span>
+            <li class="add_item" v-on:click="changeShowForm">
+                <router-link :to="{
+                    name: 'manage clothing'
+                }">
+                    <span>
+                        <font-awesome-icon icon="plus" class="icon"/>
+                    </span>
+                </router-link>
             </li>
         </ul>
     </div>
@@ -29,8 +37,8 @@ export default {
         clothing_items: Array
     },
     methods: {
-        addItemClicked(){
-            this.$emit("addItemClicked")
+        changeShowForm(){
+            this.$emit("changeShowForm")
         }
     }
 }
@@ -68,16 +76,18 @@ export default {
             align-self:center;
             width: fit-content;
             height: fit-content;
-            padding: 1rem;
+            padding: 0;
             margin-left: 3.25rem;
 
             span: {
                 width: 100%;
                 height: 100%;
             }
+
+            .icon{
+                padding: 1rem;
+            }
         }
-
-
 
         .add_item:hover {
             opacity: 0.85;

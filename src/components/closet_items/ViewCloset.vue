@@ -14,8 +14,8 @@
         </div>
 
         <ManageClosetDetails 
-            v-if="path == '/manage_clothing'" 
-            @addItemClicked="addItemClicked" 
+            v-if="path.includes('/manage_clothing')" 
+            @changeShowForm="changeShowForm" 
             :clothing_items="clothing_items_by_category" 
         />
         <ClosetDetails 
@@ -58,8 +58,8 @@ export default {
         outfitSelection(item){
             this.$emit("outfitSelection", item)
         },
-        addItemClicked(){
-            this.$emit("addItemClicked", this.category)
+        changeShowForm(){
+            this.$emit("changeShowForm", this.category)
         }
     }
 }

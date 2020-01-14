@@ -19,7 +19,6 @@ export default {
         height: 10rem;
         border-radius: 0.75rem;
         background-color: white;
-        padding: 0.25rem 0 0.25rem 0;
     }
 
     img:hover{

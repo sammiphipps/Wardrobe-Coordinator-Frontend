@@ -20,8 +20,13 @@ const routes = [
   }, {
     path: '/manage_clothing',
     name: 'manage clothing',
-    component: ManageClothing
-  }
+    component: ManageClothing,
+    children: [{
+      name: 'edit clothing',
+      path: '/manage_clothing/:id',
+      component: ManageClothing
+    }]
+  },
 ]
 
 const router = new VueRouter({

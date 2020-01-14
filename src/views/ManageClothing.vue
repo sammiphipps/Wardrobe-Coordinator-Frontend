@@ -1,12 +1,20 @@
 <template>
     <div class="manage_items">
         <ViewCloset 
-            @addItemClicked="addItemClicked" 
+            @changeShowForm="changeShowForm" 
             :clothing_items="clothing_items"
         />
-        <ClothingForm 
-            v-if="showForm" 
-            @submitHandler="submitClothingItem"
+
+        <UpdateClothingForm 
+            v-if="showForm && clothing_item_id"
+            @updateItem="updateItem"
+            :category="this.category"
+            :default_values="clothing_item"
+        />
+
+        <AddClothingForm 
+            v-else-if="showForm && clothing_item_id == undefined"
+            @addItem="addItem"
             :category="this.category"
         />
     </div>
@@ -14,12 +22,14 @@
 
 <script>
 import ViewCloset from '@/components/closet_items/ViewCloset'
-import ClothingForm from '@/components/manage_items/ClothingForm'
+import UpdateClothingForm from '@/components/manage_items/UpdateClothingForm'
+import AddClothingForm from '@/components/manage_items/AddClothingForm'
 
 export default {
     components: {
         ViewCloset,
-        ClothingForm
+        UpdateClothingForm,
+        AddClothingForm
     },
     data(){
         return {
@@ -30,17 +40,30 @@ export default {
     computed: {
         clothing_items(){
             return this.$store.state.clothing_items
+        },
+        clothing_item_id(){
+            return this.$route.params.id
+        },
+        clothing_item(){
+            return this.$store.getters.clothing_item(this.clothing_item_id)
         }
     },
     methods:{
-        addItemClicked(category){
+        changeShowForm(category){
             this.showForm = true
             this.category = category
         },
-        submitClothingItem(data){
+        addItem(data){
             this.$store.dispatch("addClothingItem", data)
+        },
+        updateItem(id, data){
+            const payload = {
+                id: id,
+                clothing_item: data
+            }
+            this.$store.dispatch("updateClothingItem", payload)
         }
-    }
+    },
 }
 
 </script>
