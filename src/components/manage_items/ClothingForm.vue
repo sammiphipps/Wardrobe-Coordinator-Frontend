@@ -14,6 +14,7 @@
                 name="category_id"
                 v-model.number="category_id"
             >
+                <option value="" disabled>Please select a category</option>
                 <option value="1">Top</option>
                 <option value="2">Bottom</option>
             </select>
@@ -51,15 +52,32 @@
 
 <script>
 export default {
+    mounted(){
+        this.category_id = this.getCategoryId(this.category)
+    },
     props:{
         category: String
     },
     data(){
         return {
-            category_id: 1,
+            category_id: "",
             image_url: "",
             clothing_type: "",
             color: "",
+        }
+    },
+    methods:{
+        getCategoryId(category){
+            if(category == "bottom"){
+                return 2
+            } else {
+                return 1
+            }
+        }
+    },
+    watch:{
+        category(){
+            this.category_id = this.getCategoryId(this.category)
         }
     }
 }
