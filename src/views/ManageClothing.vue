@@ -7,14 +7,14 @@
 
         <UpdateClothingForm 
             v-if="showForm && clothing_item_id"
-            @submitHandler="submitClothingItem"
+            @updateItem="updateItem"
             :category="this.category"
             :default_values="clothing_item"
         />
 
         <AddClothingForm 
             v-else-if="showForm && clothing_item_id == undefined"
-            @submitHandler="submitClothingItem"
+            @addItem="addItem"
             :category="this.category"
         />
     </div>
@@ -53,8 +53,15 @@ export default {
             this.showForm = true
             this.category = category
         },
-        submitClothingItem(data){
+        addItem(data){
             this.$store.dispatch("addClothingItem", data)
+        },
+        updateItem(id, data){
+            const payload = {
+                id: id,
+                clothing_item: data
+            }
+            this.$store.dispatch("updateClothingItem", payload)
         }
     },
 }

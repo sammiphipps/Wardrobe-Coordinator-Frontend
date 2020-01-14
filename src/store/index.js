@@ -29,6 +29,15 @@ export default new Vuex.Store({
     },
     addClothingItem(state, clothing_item){
       state.clothing_items = [...this.state.clothing_items, clothing_item]
+    },
+    updateClothingItem(state, information){
+     const newClothingItemArray = state.clothing_items.map(item => {
+       if(item.id == information.id){
+         Object.assign(item, information)
+       }
+       return item
+     })
+     state.clothing_items = newClothingItemArray
     }
   },
   actions: {
@@ -55,10 +64,21 @@ export default new Vuex.Store({
         body: JSON.stringify({clothing_item: clothing_item})
       }).then(response => response.json())
         .then(item => {
-          console.log("fetch success")
           commit("addClothingItem", item)
         })
         .catch(error => console.log(error))
+    },
+    updateClothingItem({commit}, information){
+      fetch(`http://localhost:3000/clothing_items/${information.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({clothing_item: information.clothing_item})
+      }).then(response => response.json())
+        .then(item => {
+          commit("updateClothingItem", item)
+        }).catch(error => console.log(error))
     }
   },
   modules: {

@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form v-on:submit="updateItem">
         <h2>Update Item</h2>
         <ClothingForm :default_values="default_values" :category="category"/>
         <button type="submit">Update</button>
@@ -16,6 +16,19 @@ export default {
     props:{
         category: String,
         default_values: Object
+    },
+    methods:{
+        updateItem(event){
+            event.preventDefault()
+            const formData = new FormData(event.target)
+            const data = {
+                image_url: formData.get('image_url'),
+                clothing_type: formData.get('clothing_type'),
+                color: formData.get('color'),
+                clothing_category_id: formData.get('clothing_category')
+            }
+            this.$emit("updateItem", this.default_values.id, data)
+        }
     }
 }
 </script>

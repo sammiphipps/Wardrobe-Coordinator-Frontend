@@ -1,5 +1,5 @@
 <template>
-    <form v-on:submit="submitHandler">
+    <form v-on:submit="addItem">
         <h2>Add Item</h2>
         <ClothingForm :category="category"/>
         <button type="submit">Add Clothing Item</button>
@@ -17,7 +17,7 @@ export default {
         category: String
     },
     methods:{
-        submitHandler(event){
+        addItem(event){
             event.preventDefault()
             const formData = new FormData(event.target)
             const data = {
@@ -27,7 +27,7 @@ export default {
                 clothing_category_id: formData.get('clothing_category')
             }
             event.target.reset
-            this.$emit("submitHandler", data)
+            this.$emit("addItem", data)
         }
     }
 }
