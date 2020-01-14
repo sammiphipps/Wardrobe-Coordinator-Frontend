@@ -41,5 +41,10 @@ export default {
                 height: 50%;
             }
         }
+
+        img {
+            padding: 0;
+            background-color: transparent;
+        }
     } 
 </style>

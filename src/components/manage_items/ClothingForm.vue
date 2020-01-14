@@ -1,19 +1,26 @@
 <template>
-    <form>
+    <form v-on:submit="submitHandler">
         <h2>Add Item</h2>
         <fieldset>
-            <div class="preview-not-loaded">
+            <div v-if="image_url" class="preview-image">
+                <img
+                    :src="image_url"
+                    :alt="clothing_type"
+                />
+            </div>
+            <div v-else class="preview-not-loaded">
                 <font-awesome-icon :icon="['far','images']" />
                 <span>Image Preview</span>
             </div>
         </fieldset>
         <fieldset>
-            <label for="category_id">Clothing Category:</label>
+            <label for="clothing_category">Clothing Category:</label>
             <select
-                id="category_id"
-                name="category_id"
+                id="clothing_category"
+                name="clothing_category"
                 v-model.number="category_id"
             >
+                <option value="" disabled>Please select a category</option>
                 <option value="1">Top</option>
                 <option value="2">Bottom</option>
             </select>
@@ -51,15 +58,43 @@
 
 <script>
 export default {
+    mounted(){
+        this.category_id = this.getCategoryId(this.category)
+    },
     props:{
         category: String
     },
     data(){
         return {
-            category_id: 1,
+            category_id: "",
             image_url: "",
             clothing_type: "",
             color: "",
+        }
+    },
+    methods:{
+        getCategoryId(category){
+            if(category == "bottom"){
+                return 2
+            } else {
+                return 1
+            }
+        },
+        submitHandler(event){
+            event.preventDefault()
+            const formData = new FormData(event.target)
+            const data = {
+                image_url: formData.get('image_url'),
+                clothing_type: formData.get('clothing_type'),
+                color: formData.get('color'),
+                clothing_category_id: formData.get('clothing_category')
+            }
+            this.$emit("submitHandler", data)
+        }
+    },
+    watch:{
+        category(){
+            this.category_id = this.getCategoryId(this.category)
         }
     }
 }
@@ -99,6 +134,10 @@ export default {
 
         fieldset:first-of-type {
             align-self: center;
+        }
+
+        .preview-image img:hover{
+            opacity: 1;
         }
 
         .preview-not-loaded {

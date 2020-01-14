@@ -4,7 +4,11 @@
             @addItemClicked="addItemClicked" 
             :clothing_items="clothing_items"
         />
-        <ClothingForm v-if="showForm" :category="this.category"/>
+        <ClothingForm 
+            v-if="showForm" 
+            @submitHandler="submitClothingItem"
+            :category="this.category"
+        />
     </div>
 </template>
 
@@ -32,6 +36,9 @@ export default {
         addItemClicked(category){
             this.showForm = true
             this.category = category
+        },
+        submitClothingItem(data){
+            this.$store.dispatch("addClothingItem", data)
         }
     }
 }
