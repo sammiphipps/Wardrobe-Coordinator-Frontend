@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form v-on:submit="submitHandler">
         <h2>Add Item</h2>
         <fieldset>
             <div v-if="image_url" class="preview-image">
@@ -14,10 +14,10 @@
             </div>
         </fieldset>
         <fieldset>
-            <label for="category_id">Clothing Category:</label>
+            <label for="clothing_category">Clothing Category:</label>
             <select
-                id="category_id"
-                name="category_id"
+                id="clothing_category"
+                name="clothing_category"
                 v-model.number="category_id"
             >
                 <option value="" disabled>Please select a category</option>
@@ -79,6 +79,17 @@ export default {
             } else {
                 return 1
             }
+        },
+        submitHandler(event){
+            event.preventDefault()
+            const formData = new FormData(event.target)
+            const data = {
+                image_url: formData.get('image_url'),
+                clothing_type: formData.get('clothing_type'),
+                color: formData.get('color'),
+                clothing_category_id: formData.get('clothing_category')
+            }
+            this.$emit("submitHandler", data)
         }
     },
     watch:{

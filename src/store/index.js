@@ -26,6 +26,9 @@ export default new Vuex.Store({
     },
     setBottom(state, clothing_item){
       state.bottom = clothing_item
+    },
+    addClothingItem(state, clothing_item){
+      state.clothing_items = [...this.state.clothing_items, clothing_item]
     }
   },
   actions: {
@@ -42,6 +45,20 @@ export default new Vuex.Store({
       } else {
         commit("setBottom", item)
       }
+    },
+    addClothingItem({commit}, clothing_item){
+      fetch("http://localhost:3000/clothing_items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({clothing_item: clothing_item})
+      }).then(response => response.json())
+        .then(item => {
+          console.log("fetch success")
+          commit("addClothingItem", item)
+        })
+        .catch(error => console.log(error))
     }
   },
   modules: {
