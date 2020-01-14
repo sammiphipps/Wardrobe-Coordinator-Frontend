@@ -60,9 +60,11 @@
 export default {
     mounted(){
         this.category_id = this.getCategoryId(this.category)
+        this.setData(this.default_values)
     },
     props:{
         category: String,
+        default_values: Object,
     },
     data(){
         return {
@@ -91,12 +93,28 @@ export default {
             }
             event.target.reset
             this.$emit("submitHandler", data)
+        },
+        setData(value){
+            if(value !== undefined){
+                this.category_id = this.getCategoryId(value.clothing_category.name)
+                this.image_url = value.image_url
+                this.clothing_type = value.clothing_type
+                this.color = value.color
+            } else {
+                this.category_id = this.getCategoryId(this.category)
+                this.image_url = ""
+                this.clothing_type = ""
+                this.color = ""
+            }
         }
     },
     watch:{
-        category(){
-            this.category_id = this.getCategoryId(this.category)
+        category(value){
+            this.category_id = this.getCategoryId(value)
         },
+        default_values(value){
+            this.setData(value)
+        }
     }
 }
 </script>

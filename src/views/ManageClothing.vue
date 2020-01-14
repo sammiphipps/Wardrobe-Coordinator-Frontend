@@ -8,6 +8,7 @@
             v-if="showForm" 
             @submitHandler="submitClothingItem"
             :category="this.category"
+            :default_values="clothing_item"
         />
     </div>
 </template>
@@ -31,6 +32,12 @@ export default {
         clothing_items(){
             return this.$store.state.clothing_items
         },
+        clothing_item_id(){
+            return this.$route.params.id
+        },
+        clothing_item(){
+            return this.$store.getters.clothing_item(this.clothing_item_id)
+        }
     },
     methods:{
         changeShowForm(category){
