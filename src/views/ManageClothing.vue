@@ -30,7 +30,7 @@ export default {
     computed: {
         clothing_items(){
             return this.$store.state.clothing_items
-        }
+        },
     },
     methods:{
         addItemClicked(category){
@@ -40,7 +40,7 @@ export default {
         submitClothingItem(data){
             this.$store.dispatch("addClothingItem", data)
         }
-    }
+    },
 }
 
 </script>

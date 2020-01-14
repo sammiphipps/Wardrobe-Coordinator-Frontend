@@ -62,14 +62,14 @@ export default {
         this.category_id = this.getCategoryId(this.category)
     },
     props:{
-        category: String
+        category: String,
     },
     data(){
         return {
             category_id: "",
             image_url: "",
             clothing_type: "",
-            color: "",
+            color: ""
         }
     },
     methods:{
@@ -89,13 +89,14 @@ export default {
                 color: formData.get('color'),
                 clothing_category_id: formData.get('clothing_category')
             }
+            event.target.reset
             this.$emit("submitHandler", data)
         }
     },
     watch:{
         category(){
             this.category_id = this.getCategoryId(this.category)
-        }
+        },
     }
 }
 </script>

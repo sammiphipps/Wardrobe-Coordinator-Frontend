@@ -14,7 +14,7 @@
         </div>
 
         <ManageClosetDetails 
-            v-if="path == '/manage_clothing'" 
+            v-if="path.includes('/manage_clothing')" 
             @addItemClicked="addItemClicked" 
             :clothing_items="clothing_items_by_category" 
         />
