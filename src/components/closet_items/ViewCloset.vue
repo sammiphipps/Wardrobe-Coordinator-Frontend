@@ -15,7 +15,7 @@
 
         <ManageClosetDetails 
             v-if="path.includes('/manage_clothing')" 
-            @addItemClicked="addItemClicked" 
+            @changeShowForm="changeShowForm" 
             :clothing_items="clothing_items_by_category" 
         />
         <ClosetDetails 
@@ -58,8 +58,8 @@ export default {
         outfitSelection(item){
             this.$emit("outfitSelection", item)
         },
-        addItemClicked(){
-            this.$emit("addItemClicked", this.category)
+        changeShowForm(){
+            this.$emit("changeShowForm", this.category)
         }
     }
 }

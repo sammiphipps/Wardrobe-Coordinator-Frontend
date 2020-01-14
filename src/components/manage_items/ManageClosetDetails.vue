@@ -1,7 +1,11 @@
 <template>
     <div class="closet-details">
         <ul>
-            <li v-for="item in clothing_items" :key="item.id">
+            <li 
+                v-for="item in clothing_items" 
+                :key="item.id" 
+                v-on:click="changeShowForm"
+            >
                 <router-link :to="{
                     name: 'edit clothing', 
                     params: { id: item.id }
@@ -9,7 +13,7 @@
                     <ClothingCard :item="item" />
                 </router-link>
             </li>
-            <li class="add_item" v-on:click="addItemClicked">
+            <li class="add_item" v-on:click="changeShowForm">
                 <router-link :to="{
                     name: 'manage clothing'
                 }">
@@ -33,8 +37,8 @@ export default {
         clothing_items: Array
     },
     methods: {
-        addItemClicked(){
-            this.$emit("addItemClicked")
+        changeShowForm(){
+            this.$emit("changeShowForm")
         }
     }
 }
@@ -84,8 +88,6 @@ export default {
                 padding: 1rem;
             }
         }
-
-
 
         .add_item:hover {
             opacity: 0.85;

@@ -1,7 +1,7 @@
 <template>
     <div class="manage_items">
         <ViewCloset 
-            @addItemClicked="addItemClicked" 
+            @changeShowForm="changeShowForm" 
             :clothing_items="clothing_items"
         />
         <ClothingForm 
@@ -33,7 +33,7 @@ export default {
         },
     },
     methods:{
-        addItemClicked(category){
+        changeShowForm(category){
             this.showForm = true
             this.category = category
         },
