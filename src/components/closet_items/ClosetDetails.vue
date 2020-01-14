@@ -4,7 +4,7 @@
             <li v-for="item in clothing_items" :key="item.id">
                 <router-link
                     :to="{
-                        path: 'outfit'
+                        name: 'outfit'
                     }"
                 >
                     <ClothingCard @click.native="outfitSelection(item)" :item="item" />
@@ -37,7 +37,7 @@ export default {
 
 .closet-details {
 
-    background-color: $primary-color1;
+    background-color: $primary-color;
     height: 96%;
     overflow: auto;
 

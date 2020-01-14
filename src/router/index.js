@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import ViewCloset from "@/views/ViewCloset"
 import Outfit from '@/views/Outfit'
+import ManageClothing from '@/views/ManageClothing'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,10 @@ const routes = [
       path: "/outfit",
       component: Outfit
     }]
+  }, {
+    path: '/manage_clothing',
+    name: 'manage clothing',
+    component: ManageClothing
   }
 ]
 

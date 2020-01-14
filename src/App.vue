@@ -5,8 +5,12 @@
 
       <nav>
         <ul>
-          <li class="nav-link">Outfit</li>
-          <li class="nav-link">Manage Clothing</li>
+          <li>
+            <router-link class="nav-link" :to="{name: 'outfit'}">Outfit Selector</router-link>
+          </li>
+          <li class="nav-link">
+            <router-link class="nav-link" :to="{name: 'manage clothing'}">Manage Clothing</router-link>
+          </li>
         </ul>
       </nav>
 
@@ -63,12 +67,18 @@ export default{
             padding: 0;
             margin: 0;
 
-            .nav-link {
+            li{
               padding: 0.5rem; 
             }
 
+            .nav-link {
+              color: black;
+              text-decoration: none;
+            }
+
             .nav-link:hover {
-              color: $links_color;
+              color: $highlight_color;
+              cursor: pointer;
             }
           }
         }

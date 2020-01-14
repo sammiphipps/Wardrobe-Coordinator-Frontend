@@ -13,16 +13,27 @@
             >Bottoms</button>
         </div>
 
-        <ClosetDetails @outfitSelection="outfitSelection" :clothing_items="clothing_items_by_category" />
+        <ManageClosetDetails 
+            v-if="path == '/manage_clothing'" 
+            @addItemClicked="addItemClicked" 
+            :clothing_items="clothing_items_by_category" 
+        />
+        <ClosetDetails 
+            v-else 
+            @outfitSelection="outfitSelection" 
+            :clothing_items="clothing_items_by_category" 
+        />
     </div>
 </template>
 
 <script>
 import ClosetDetails from "@/components/closet_items/ClosetDetails"
+import ManageClosetDetails from "@/components/manage_items/ManageClosetDetails"
 
 export default {
     components:{
-        ClosetDetails
+        ClosetDetails,
+        ManageClosetDetails
     },
     props: {
         clothing_items: Array,
@@ -35,6 +46,9 @@ export default {
     computed: {
         clothing_items_by_category(){
             return this.$store.getters.clothing_items_by_category(this.category)
+        },
+        path(){
+            return this.$route.path
         }
     },
     methods: {
@@ -43,6 +57,9 @@ export default {
         },
         outfitSelection(item){
             this.$emit("outfitSelection", item)
+        },
+        addItemClicked(){
+            this.$emit("addItemClicked", this.category)
         }
     }
 }
@@ -62,7 +79,7 @@ export default {
         .tablink {
             border-top-left-radius: 26%;
             border-top-right-radius: 26%; 
-            border: 1px solid $primary_color1;
+            border: 1px solid $primary_color;
             cursor: pointer; 
             padding: 0.3rem;
             margin-right: 0.4rem;
@@ -70,15 +87,11 @@ export default {
             font-size: 1rem;
             font-weight: 250;
             font-family: 'Cormorant', serif;
-            background-color: $primary_color1;
+            background-color: $primary_color;
         }
 
         .tablink:hover{
-            background-color: #ddd;
-        }
-
-        .tablink:active{
-            background-colo: #ccc;
+            background-color: $highlight_color;
         }
 
     }
