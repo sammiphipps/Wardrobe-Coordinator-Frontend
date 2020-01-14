@@ -2,6 +2,7 @@
     <div class="manage_items">
         <ViewCloset 
             @changeShowForm="changeShowForm" 
+            @removeItem="removeItem"
             :clothing_items="clothing_items"
         />
 
@@ -62,6 +63,10 @@ export default {
                 clothing_item: data
             }
             this.$store.dispatch("updateClothingItem", payload)
+        },
+        removeItem(id){
+            this.showForm = false
+            this.$store.dispatch("removeClothingItem", id)
         }
     },
 }
