@@ -2,7 +2,13 @@
     <form>
         <h2>Add Item</h2>
         <fieldset>
-            <div class="preview-not-loaded">
+            <div v-if="image_url" class="preview-image">
+                <img
+                    :src="image_url"
+                    :alt="clothing_type"
+                />
+            </div>
+            <div v-else class="preview-not-loaded">
                 <font-awesome-icon :icon="['far','images']" />
                 <span>Image Preview</span>
             </div>
@@ -117,6 +123,10 @@ export default {
 
         fieldset:first-of-type {
             align-self: center;
+        }
+
+        .preview-image img:hover{
+            opacity: 1;
         }
 
         .preview-not-loaded {
