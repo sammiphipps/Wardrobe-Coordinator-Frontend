@@ -58,7 +58,10 @@
 export default {
     mounted(){
         this.category_id = this.getCategoryId(this.category)
-        this.setData(this.default_values)
+
+        if(this.default_values !== undefined){
+            this.setData(this.default_values)
+        }
     },
     props:{
         category: String,
