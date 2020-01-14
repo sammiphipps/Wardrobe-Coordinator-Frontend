@@ -7,10 +7,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faImages } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import {Plugin} from 'vue-fragment'
 
 library.add(faPlus, faImages)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.use (Plugin)
 
 Vue.config.productionTip = false
 

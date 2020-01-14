@@ -4,23 +4,32 @@
             @changeShowForm="changeShowForm" 
             :clothing_items="clothing_items"
         />
-        <ClothingForm 
-            v-if="showForm" 
+
+        <UpdateClothingForm 
+            v-if="showForm && clothing_item_id"
             @submitHandler="submitClothingItem"
             :category="this.category"
             :default_values="clothing_item"
+        />
+
+        <AddClothingForm 
+            v-else-if="showForm && clothing_item_id == undefined"
+            @submitHandler="submitClothingItem"
+            :category="this.category"
         />
     </div>
 </template>
 
 <script>
 import ViewCloset from '@/components/closet_items/ViewCloset'
-import ClothingForm from '@/components/manage_items/ClothingForm'
+import UpdateClothingForm from '@/components/manage_items/UpdateClothingForm'
+import AddClothingForm from '@/components/manage_items/AddClothingForm'
 
 export default {
     components: {
         ViewCloset,
-        ClothingForm
+        UpdateClothingForm,
+        AddClothingForm
     },
     data(){
         return {

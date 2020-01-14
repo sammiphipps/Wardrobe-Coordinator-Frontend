@@ -1,6 +1,5 @@
 <template>
-    <form v-on:submit="submitHandler">
-        <h2>Add Item</h2>
+    <fragment>
         <fieldset>
             <div v-if="image_url" class="preview-image">
                 <img
@@ -52,8 +51,7 @@
                 v-model="color"
             />
         </fieldset>
-        <button type="submit">Add Clothing</button>
-    </form>
+    </fragment>
 </template>
 
 <script>
@@ -82,18 +80,6 @@ export default {
                 return 1
             }
         },
-        submitHandler(event){
-            event.preventDefault()
-            const formData = new FormData(event.target)
-            const data = {
-                image_url: formData.get('image_url'),
-                clothing_type: formData.get('clothing_type'),
-                color: formData.get('color'),
-                clothing_category_id: formData.get('clothing_category')
-            }
-            event.target.reset
-            this.$emit("submitHandler", data)
-        },
         setData(value){
             if(value !== undefined){
                 this.category_id = this.getCategoryId(value.clothing_category.name)
@@ -120,17 +106,6 @@ export default {
 </script>
 
 <style lang="scss">
-    form{
-        margin-left: 2%;
-        margin-top: 3%;
-        height: 97%;
-        width: 48%;
-        display: flex;
-        flex-direction: column;
-
-        h2 {
-            margin: 0.5rem 0 0.5rem 0;
-        }
 
         fieldset {
             border:none; 
@@ -155,6 +130,10 @@ export default {
             align-self: center;
         }
 
+        .preview-image img{
+            background-color: transparent;
+        }
+
         .preview-image img:hover{
             opacity: 1;
         }
@@ -165,12 +144,4 @@ export default {
                 margin-left: 0.5rem;
             }
         }
-
-        button {
-            width: fit-content;
-            padding: 0.3rem 0.5rem 0.3rem 0.5rem;
-            align-self: center;
-            cursor: pointer;
-        }
-    } 
 </style>
