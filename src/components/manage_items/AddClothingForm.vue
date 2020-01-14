@@ -1,5 +1,5 @@
 <template>
-    <form v-on:submit="addItem">
+    <form @submit="addItem">
         <h2>Add Item</h2>
         <ClothingForm :category="category"/>
         <button type="submit">Add Clothing Item</button>
@@ -44,7 +44,7 @@ export default {
         flex-direction: column;
 
         h2 {
-            margin: 0.5rem 0 0.5rem 0;
+            margin: 0.75rem 0 0.5rem 0;
         }
 
         button {

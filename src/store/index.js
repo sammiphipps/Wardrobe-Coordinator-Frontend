@@ -38,6 +38,12 @@ export default new Vuex.Store({
        return item
      })
      state.clothing_items = newClothingItemArray
+    },
+    removeClothingItem(state, id){
+      const newClothingItemArray = state.clothing_items.filter(item => {
+        return item.id !== id
+      })
+      state.clothing_items = newClothingItemArray
     }
   },
   actions: {
@@ -79,6 +85,13 @@ export default new Vuex.Store({
         .then(item => {
           commit("updateClothingItem", item)
         }).catch(error => console.log(error))
+    },
+    removeClothingItem({commit}, id){
+      fetch(`http://localhost:3000/clothing_items/${id}`, {
+        method: "DELETE"
+      }).then(() => {
+        commit("removeClothingItem", id)
+      }).catch(error => console.log(error))
     }
   },
   modules: {

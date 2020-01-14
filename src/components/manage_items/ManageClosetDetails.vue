@@ -2,18 +2,23 @@
     <div class="closet-details">
         <ul>
             <li 
+                class="manage-card"
                 v-for="item in clothing_items" 
                 :key="item.id" 
-                v-on:click="changeShowForm"
             >
-                <router-link :to="{
-                    name: 'edit clothing', 
-                    params: { id: item.id }
-                }">
-                    <ClothingCard :item="item" />
-                </router-link>
+                <span @click="removeItem(item.id)">
+                    <font-awesome-icon icon="times" size="xs"/>
+                </span>
+                <section @click="changeShowForm">
+                    <router-link :to="{
+                        name: 'edit clothing', 
+                        params: { id: item.id }
+                    }">
+                        <ClothingCard :item="item" />
+                    </router-link>
+                </section>
             </li>
-            <li class="add_item" v-on:click="changeShowForm">
+            <li class="add_item" @click="changeShowForm">
                 <router-link :to="{
                     name: 'manage clothing'
                 }">
@@ -39,6 +44,9 @@ export default {
     methods: {
         changeShowForm(){
             this.$emit("changeShowForm")
+        },
+        removeItem(id){
+            this.$emit("removeItem", id)
         }
     }
 }
@@ -65,7 +73,24 @@ export default {
             margin: 0.5rem;
             background-color: $card_color;
             border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
             cursor: pointer; 
+
+            span {
+                align-self: flex-end;
+                margin: -8% 0 0 0;
+                padding: 0;
+            }
+
+            section{
+                a {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
 
         .add_item{
@@ -79,13 +104,17 @@ export default {
             padding: 0;
             margin-left: 3.25rem;
 
-            span: {
-                width: 100%;
-                height: 100%;
-            }
+            a {
+                color: black;
 
-            .icon{
-                padding: 1rem;
+                span: {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .icon{
+                    padding: 1rem;
+                }
             }
         }
 

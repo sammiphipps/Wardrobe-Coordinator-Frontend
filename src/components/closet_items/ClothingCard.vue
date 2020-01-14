@@ -15,7 +15,7 @@ export default {
 
 <style lang="scss">
     img{
-        width: 7.5rem;
+        width: 7rem;
         height: 10rem;
         border-radius: 0.75rem;
         background-color: white;

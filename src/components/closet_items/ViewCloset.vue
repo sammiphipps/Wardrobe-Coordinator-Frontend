@@ -16,6 +16,7 @@
         <ManageClosetDetails 
             v-if="path.includes('/manage_clothing')" 
             @changeShowForm="changeShowForm" 
+            @removeItem="removeItem"
             :clothing_items="clothing_items_by_category" 
         />
         <ClosetDetails 
@@ -60,6 +61,9 @@ export default {
         },
         changeShowForm(){
             this.$emit("changeShowForm", this.category)
+        },
+        removeItem(id){
+            this.$emit("removeItem", id)
         }
     }
 }
