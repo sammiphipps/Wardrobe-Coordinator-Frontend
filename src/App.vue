@@ -5,11 +5,14 @@
 
       <nav v-if="this.$route.path !== '/'">
         <ul>
-          <li>
-            <router-link class="nav-link" :to="{name: 'outfit'}">Outfit Selector</router-link>
+          <li class="nav-link" >
+            <router-link :to="{name: 'outfit'}">Outfit Selector</router-link>
           </li>
           <li class="nav-link">
-            <router-link class="nav-link" :to="{name: 'manage clothing'}">Manage Clothing</router-link>
+            <router-link :to="{name: 'manage clothing'}">Manage Clothing</router-link>
+          </li>
+          <li class="nav-link">
+            <router-link :to="{name: 'login'}">Logout</router-link>
           </li>
         </ul>
       </nav>
@@ -69,16 +72,16 @@ export default{
 
             li{
               padding: 0.5rem; 
-            }
 
-            .nav-link {
-              color: black;
-              text-decoration: none;
-            }
+              a {
+                color: black;
+                text-decoration: none;
+              }
 
-            .nav-link:hover {
-              color: $highlight_color;
-              cursor: pointer;
+              a:hover {
+                color: $highlight_color;
+                cursor: pointer;
+              }
             }
           }
         }

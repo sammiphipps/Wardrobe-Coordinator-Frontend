@@ -6,6 +6,7 @@
                 type="text" 
                 id="username" 
                 name="username" 
+                required
             />
         </fieldset>
         <fieldset>
@@ -14,6 +15,7 @@
                 type="text"
                 id="password"
                 name="password" 
+                required
             />
         </fieldset>
         <button type="submit">Login</button>
