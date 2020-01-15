@@ -1,5 +1,5 @@
 <template>
-    <form @submit="updateItem">
+    <form class="update-form" @submit="updateItem">
         <h2>Update Item</h2>
         <ClothingForm :default_values="default_values" :category="category"/>
         <button type="submit">Update</button>
@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 
-    form{
+    .update-form{
         margin-left: 2%;
         margin-top: 3%;
         height: 97%;

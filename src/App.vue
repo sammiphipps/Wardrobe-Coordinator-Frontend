@@ -3,7 +3,7 @@
     <header>
       <h1>Closet Organizer</h1>
 
-      <nav>
+      <nav v-if="this.$route.path !== '/'">
         <ul>
           <li>
             <router-link class="nav-link" :to="{name: 'outfit'}">Outfit Selector</router-link>

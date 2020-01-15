@@ -1,5 +1,5 @@
 <template>
-    <form @submit="addItem">
+    <form class="add-form" @submit="addItem">
         <h2>Add Item</h2>
         <ClothingForm :category="category"/>
         <button type="submit">Add Clothing Item</button>
@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 
-    form{
+    .add-form{
         margin-left: 2%;
         margin-top: 3%;
         height: 97%;

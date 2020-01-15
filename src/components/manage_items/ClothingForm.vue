@@ -1,6 +1,6 @@
 <template>
     <fragment>
-        <fieldset>
+        <fieldset class="inside-form">
             <div v-if="image_url" class="preview-image">
                 <img
                     :src="image_url"
@@ -12,7 +12,7 @@
                 <span>Image Preview</span>
             </div>
         </fieldset>
-        <fieldset>
+        <fieldset class="inside-form">
             <label for="clothing_category">Clothing Category:</label>
             <select
                 id="clothing_category"
@@ -24,7 +24,7 @@
                 <option value="2">Bottom</option>
             </select>
         </fieldset>
-        <fieldset>
+        <fieldset class="inside-form">
             <label for="image_url">Image Url:</label>
             <input 
                 type="text" 
@@ -33,7 +33,7 @@
                 v-model="image_url"
             />
         </fieldset>
-        <fieldset>
+        <fieldset class="inside-form">
             <label for="clothing_type">Clothing Type:</label>
             <input 
                 type="text" 
@@ -42,7 +42,7 @@
                 v-model="clothing_type"
             />
         </fieldset>
-        <fieldset>
+        <fieldset class="inside-form">
             <label for="color">Color: </label>
             <input 
                 type="text" 
@@ -110,7 +110,7 @@ export default {
 
 <style lang="scss">
 
-        fieldset {
+        .inside-form {
             border:none; 
             margin: 0; 
 
@@ -129,7 +129,7 @@ export default {
             }
         }
 
-        fieldset:first-of-type {
+        .inside-form:first-of-type {
             align-self: center;
         }
 
