@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     clothing_items : [],
     top: {},
-    bottom: {}
+    bottom: {},
+    user: {}
   },
   getters: {
     clothing_items_by_category: (state) => (clothing_category) => {
@@ -44,6 +45,12 @@ export default new Vuex.Store({
         return item.id !== id
       })
       state.clothing_items = newClothingItemArray
+    },
+    login(state, userinfo){
+      state.user = {
+        id: userinfo.user_id,
+        username: userinfo.username
+      }
     }
   },
   actions: {
@@ -92,6 +99,21 @@ export default new Vuex.Store({
       }).then(() => {
         commit("removeClothingItem", id)
       }).catch(error => console.log(error))
+    },
+    login({commit}, submissionData){
+      fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: submissionData.username,
+          password: submissionData.password
+        })
+      }).then(response => response.json())
+        .then(information => {
+          commit("login", information)
+        }).catch(error => console.log("error", error))
     }
   },
   modules: {
