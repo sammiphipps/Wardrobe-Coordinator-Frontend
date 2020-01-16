@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from '@/router'
 
 Vue.use(Vuex)
 
@@ -8,8 +7,7 @@ export default new Vuex.Store({
   state: {
     clothing_items : [],
     top: {},
-    bottom: {},
-    user: {}
+    bottom: {}
   },
   getters: {
     clothing_items_by_category: (state) => (clothing_category) => {
@@ -47,14 +45,6 @@ export default new Vuex.Store({
       })
       state.clothing_items = newClothingItemArray
     },
-    login(state, userinfo){
-      state.user = {
-        id: userinfo.user_id,
-        username: userinfo.username
-      }
-      localStorage.setItem("token", userinfo.token)
-      router.replace({name: "closet"})
-    }
   },
   actions: {
     fetchClothingItems({commit}){
@@ -111,25 +101,6 @@ export default new Vuex.Store({
         commit("removeClothingItem", id)
       }).catch(error => console.log(error))
     },
-    login({commit}, submissionData){
-      fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          username: submissionData.username,
-          password: submissionData.password
-        })
-      }).then(response => response.json())
-        .then(information => {
-          if(!information.error){
-            commit("login", information)
-          } else {
-            alert("Username or password is incorrect.")
-          }
-        }).catch(error => console.log("error", error))
-    }
   },
   modules: {
   }
