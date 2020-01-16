@@ -26,13 +26,9 @@
 
 <script>
 export default{
-  mounted(){
-    this.$store.dispatch("fetchClothingItems")
-  },
   methods: {
     logout(){
       localStorage.removeItem("token")
-      localStorage.removeItem("username")
     }
   }
 }
