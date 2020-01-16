@@ -27,7 +27,12 @@ export default {
     methods: {
         loginSubmission(event){
             event.preventDefault()
-            this.$router.replace({name: 'closet'})
+            const formData = new FormData(event.target)
+            const submissionData = {
+                username: formData.get("username"),
+                password: formData.get("password")
+            }
+            this.$emit("loginSubmission", submissionData)
         }
     }
 }

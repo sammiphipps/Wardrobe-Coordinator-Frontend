@@ -11,7 +11,7 @@
           <li class="nav-link">
             <router-link :to="{name: 'manage clothing'}">Manage Clothing</router-link>
           </li>
-          <li class="nav-link">
+          <li class="nav-link" @click="logout">
             <router-link :to="{name: 'login'}">Logout</router-link>
           </li>
         </ul>
@@ -27,8 +27,13 @@
 <script>
 export default{
   mounted(){
-      this.$store.dispatch("fetchClothingItems")
+    this.$store.dispatch("fetchClothingItems")
   },
+  methods: {
+    logout(){
+      localStorage.removeItem("token")
+    }
+  }
 }
 </script>
 
