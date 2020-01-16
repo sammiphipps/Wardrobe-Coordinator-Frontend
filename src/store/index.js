@@ -51,6 +51,7 @@ export default new Vuex.Store({
         id: userinfo.user_id,
         username: userinfo.username
       }
+      localStorage.setItem("token", userinfo.token)
     }
   },
   actions: {
