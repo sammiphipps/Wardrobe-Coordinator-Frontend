@@ -115,7 +115,11 @@ export default new Vuex.Store({
         })
       }).then(response => response.json())
         .then(information => {
-          commit("login", information)
+          if(!information.error){
+            commit("login", information)
+          } else {
+            alert("Username or password is incorrect.")
+          }
         }).catch(error => console.log("error", error))
     }
   },
