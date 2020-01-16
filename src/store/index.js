@@ -115,7 +115,9 @@ export default new Vuex.Store({
         })
       }).then(response => response.json())
         .then(information => {
-          commit("login", information)
+          if(!information.error){
+            commit("login", information)
+          }
         }).catch(error => console.log("error", error))
     }
   },
