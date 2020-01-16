@@ -12,6 +12,12 @@
 import ViewCloset from '@/components/closet_items/ViewCloset'
 
 export default {
+    mounted(){
+        const token = localStorage.getItem('token')
+        if(token == null){
+            this.$router.replace({name: 'login'})
+        }
+    },
     components: {
         ViewCloset,
     },
