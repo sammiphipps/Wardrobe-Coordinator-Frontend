@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from '@/router'
 
 Vue.use(Vuex)
 
@@ -52,6 +53,7 @@ export default new Vuex.Store({
         username: userinfo.username
       }
       localStorage.setItem("token", userinfo.token)
+      router.replace({name: "closet"})
     }
   },
   actions: {
