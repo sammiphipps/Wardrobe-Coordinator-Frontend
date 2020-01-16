@@ -48,7 +48,14 @@ export default new Vuex.Store({
   },
   actions: {
     fetchClothingItems({commit}){
-      fetch("http://localhost:3000/clothing_items")
+      const token = localStorage.getItem("token")
+      fetch("http://localhost:3000/user_clothing_items", {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      })
         .then(response => response.json())
         .then(clothing_items => {
           commit("setClothingItems", clothing_items)

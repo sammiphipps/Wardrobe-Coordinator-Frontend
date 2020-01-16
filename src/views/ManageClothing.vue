@@ -27,6 +27,14 @@ import UpdateClothingForm from '@/components/manage_items/UpdateClothingForm'
 import AddClothingForm from '@/components/manage_items/AddClothingForm'
 
 export default {
+    created(){
+        const token = localStorage.getItem('token')
+        if(token == null){
+            this.$router.replace({name: 'login'})
+        } else {
+            this.$store.dispatch("fetchClothingItems")
+        }
+    },
     components: {
         ViewCloset,
         UpdateClothingForm,

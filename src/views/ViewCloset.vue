@@ -12,10 +12,12 @@
 import ViewCloset from '@/components/closet_items/ViewCloset'
 
 export default {
-    mounted(){
+    created(){
         const token = localStorage.getItem('token')
         if(token == null){
             this.$router.replace({name: 'login'})
+        } else {
+            this.$store.dispatch("fetchClothingItems")
         }
     },
     components: {
