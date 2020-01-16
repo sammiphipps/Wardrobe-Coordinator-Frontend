@@ -11,7 +11,25 @@ export default {
     },
     methods: {
         loginSubmission(submissionData){
-            this.$store.dispatch("login", submissionData)
+            fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: submissionData.username,
+                    password: submissionData.password
+                })
+            }).then(response => response.json())
+                .then(information => {
+                if(!information.error){
+                    localStorage.setItem("token", information.token)
+                    localStorage.setItem("username", information.username)
+                    this.$router.replace({name: "closet"})
+                } else {
+                    alert("Username or password is incorrect.")
+                }
+                }).catch(error => console.log("error", error))
         }
     }
 }
