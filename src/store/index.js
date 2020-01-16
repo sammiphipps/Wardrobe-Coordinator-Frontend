@@ -72,9 +72,11 @@ export default new Vuex.Store({
       }
     },
     addClothingItem({commit}, clothing_item){
+      const token = localStorage.getItem("token")
       fetch("http://localhost:3000/clothing_items", {
         method: "POST",
         headers: {
+          "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({clothing_item: clothing_item})
@@ -85,9 +87,11 @@ export default new Vuex.Store({
         .catch(error => console.log(error))
     },
     updateClothingItem({commit}, information){
+      const token = localStorage.getItem("token")
       fetch(`http://localhost:3000/clothing_items/${information.id}`, {
         method: "PUT",
         headers: {
+          "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify({clothing_item: information.clothing_item})
@@ -97,8 +101,12 @@ export default new Vuex.Store({
         }).catch(error => console.log(error))
     },
     removeClothingItem({commit}, id){
+      const token = localStorage.getItem("token")
       fetch(`http://localhost:3000/clothing_items/${id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
       }).then(() => {
         commit("removeClothingItem", id)
       }).catch(error => console.log(error))
