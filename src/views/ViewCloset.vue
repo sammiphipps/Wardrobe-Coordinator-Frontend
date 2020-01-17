@@ -1,15 +1,17 @@
 <template>
-    <div class="view-closet">
+    <div class="view-closet" v-if="clothing_items.length !== 0">
         <ViewCloset 
             :clothing_items="clothing_items"
             @outfitSelection="outfitSelection"
         />
         <router-view />
     </div>
+    <EmptyCloset v-else/>
 </template>
 
 <script>
 import ViewCloset from '@/components/closet_items/ViewCloset'
+import EmptyCloset from '@/components/closet_items/EmptyCloset'
 
 export default {
     created(){
@@ -22,6 +24,7 @@ export default {
     },
     components: {
         ViewCloset,
+        EmptyCloset
     },
     computed: {
         clothing_items(){

@@ -77,6 +77,13 @@ export default {
             this.$store.dispatch("removeClothingItem", id)
         }
     },
+    watch: {
+        clothing_items(){
+            if(this.clothing_items.length == 0){
+                this.showForm = true
+            }   
+        }
+    }
 }
 
 </script>
