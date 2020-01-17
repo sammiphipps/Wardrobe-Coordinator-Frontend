@@ -118,6 +118,10 @@ export default {
             }
         }
 
+        .add_item:only-of-type{
+            margin-left: 1rem;
+        }
+
         .add_item:hover {
             opacity: 0.85;
         }
