@@ -1,25 +1,30 @@
 <template>
-    <form class="login-form" @submit="loginSubmission">
-        <fieldset>
-            <label>Username: </label>
-            <input 
-                type="text" 
-                id="username" 
-                name="username" 
-                required
-            />
-        </fieldset>
-        <fieldset>
-            <label>Password: </label>
-            <input
-                type="password"
-                id="password"
-                name="password" 
-                required
-            />
-        </fieldset>
-        <button type="submit">Login</button>
-    </form>
+    <div class="login-screen">
+        <form class="login" @submit="loginSubmission">
+            <fieldset>
+                <label>Username: </label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    required
+                />
+            </fieldset>
+            <fieldset>
+                <label>Password: </label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password" 
+                    required
+                />
+            </fieldset>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account: 
+            <a href="#">Sign up here!</a>
+        </p>
+    </div>
 </template>
 
 <script>
@@ -39,31 +44,45 @@ export default {
 </script>
 
 <style lang="scss">
-    .login-form {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+@import '@/styles/_colors.scss';
+    .login-screen {
+        width: fit-content;
+        padding: 1rem 4rem 1rem 4rem;
+        border-radius: 1rem;
+        background-color: $primary_color;
+        margin: 0 25%;
 
-        fieldset {
-            border:none; 
-            width: 45%;
+        .login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-            label {
-                display: inline-block;
-                width: 17%;
+            fieldset{
+                border: none;
+
+                label{
+                    display: inline-block;
+                    width: 5.5rem;
+                }
+
+                input {
+                    display: inline-block;
+                    width: 12rem;
+                }
             }
 
-            input{
-                margin-left: 1%;
-                width: 50%;
+            button {
+                width: fit-content;
+                padding: 0.25rem 1rem 0.25rem 1rem;
             }
         }
+        p {
+            text-align: center;
+            margin: 0.5rem 0 0.5rem 0;
 
-        button {
-            align-self: flex-start;
-            padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-            margin-left: 44%;
+            a {
+                text-decoration: none;
+            }
         }
     }
 </style>
