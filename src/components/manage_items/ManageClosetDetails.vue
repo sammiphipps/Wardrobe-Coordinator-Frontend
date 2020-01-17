@@ -118,8 +118,8 @@ export default {
             }
         }
 
-        .add_item:only-of-type{
-            margin-left: 1rem;
+        .add_item:only-child{
+            margin: 0.5rem 0 0 0.5rem;
         }
 
         .add_item:hover {
