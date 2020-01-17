@@ -1,8 +1,9 @@
 <template>
-    <div class="outfit">
+    <aside class="outfit">
         <OutfitTop v-if="top.image_url" :top="top" />
         <OutfitBottom v-if="bottom.image_url" :bottom="bottom" />
-    </div>
+        <button @click="clearOutfit">Clear</button>
+    </aside>
 </template>
 
 <script>
@@ -20,6 +21,11 @@ export default {
         },
         bottom(){
             return this.$store.state.bottom
+        }
+    },
+    methods:{
+        clearOutfit(){
+            this.$store.dispatch("clearOutfit")
         }
     }
 }
@@ -45,6 +51,17 @@ export default {
         img {
             padding: 0;
             background-color: transparent;
+        }
+
+        button {
+            width: fit-content;
+            padding: 0.25rem 1rem 0.25rem 1rem;
+            margin: 1rem;
+            align-self: center;
+        }
+
+        button:only-child{
+            display: none;
         }
     } 
 </style>

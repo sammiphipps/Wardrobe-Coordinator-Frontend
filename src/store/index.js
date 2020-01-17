@@ -108,6 +108,10 @@ export default new Vuex.Store({
         commit("removeClothingItem", id)
       }).catch(error => console.log(error))
     },
+    clearOutfit({commit}){
+      commit("setTop", {})
+      commit("setBottom", {})
+    }
   },
   modules: {
   }
