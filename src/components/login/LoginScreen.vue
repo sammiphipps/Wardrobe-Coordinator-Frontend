@@ -1,5 +1,5 @@
 <template>
-    <form class="login" @submit="loginSubmission">
+    <form class="login-form" @submit="loginSubmission">
         <fieldset>
             <label>Username: </label>
             <input 
@@ -39,7 +39,8 @@ export default {
 </script>
 
 <style lang="scss">
-    .login {
+    .login-form {
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;

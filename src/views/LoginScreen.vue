@@ -1,5 +1,10 @@
 <template>
-    <LoginScreen @loginSubmission="loginSubmission"/>
+    <div class="login">
+        <LoginScreen @loginSubmission="loginSubmission"/>
+        <p>Don't have an account: 
+            <a href="#">Sign up here</a>
+        </p>
+    </div>
 </template>
 
 <script>
@@ -35,4 +40,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/_colors.scss';
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $primary_color;
+        p {
+            margin-left: -9%;
+        }
+    }
 </style>
