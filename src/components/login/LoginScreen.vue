@@ -22,7 +22,7 @@
             <button type="submit">Login</button>
         </form>
         <p>Don't have an account: 
-            <a href="#">Sign up here!</a>
+            <span @click="signup">Sign up here!</span>
         </p>
     </div>
 </template>
@@ -38,6 +38,9 @@ export default {
                 password: formData.get("password")
             }
             this.$emit("loginSubmission", submissionData)
+        },
+        signup(){
+            this.$emit("signup")
         }
     }
 }
@@ -74,14 +77,16 @@ export default {
             button {
                 width: fit-content;
                 padding: 0.25rem 1rem 0.25rem 1rem;
+                cursor: pointer;
             }
         }
         p {
             text-align: center;
             margin: 0.5rem 0 0.5rem 0;
 
-            a {
-                text-decoration: none;
+            span {
+                color: blue;
+                cursor: pointer;
             }
         }
     }
