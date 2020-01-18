@@ -58,7 +58,6 @@ export default {
 .closet-details {
 
     background-color: $primary-color;
-    height: 96%;
     overflow: auto;
 
     ul {
@@ -87,8 +86,6 @@ export default {
             section{
                 a {
                     display: inline-block;
-                    width: 100%;
-                    height: 100%;
                 }
             }
         }
@@ -108,8 +105,7 @@ export default {
                 color: black;
 
                 span: {
-                    width: 100%;
-                    height: 100%;
+
                 }
 
                 .icon{

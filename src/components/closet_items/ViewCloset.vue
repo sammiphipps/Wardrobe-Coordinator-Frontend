@@ -73,16 +73,17 @@ export default {
 @import '@/styles/_colors.scss';
 
     .closet {
-        height: 100%;
-        width: 48%;
+        margin: 0 0 1.5rem 1.5rem;
+        width: calc(100% - 1.5rem);
+        height: calc(100% - 1.5rem);
 
-        .tab {
+        .tabs{
             overflow:hidden;
         }
 
         .tablink {
-            border-top-left-radius: 26%;
-            border-top-right-radius: 26%; 
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem; 
             border: 1px solid $primary_color;
             cursor: pointer; 
             padding: 0.3rem;

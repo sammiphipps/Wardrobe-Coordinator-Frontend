@@ -36,10 +36,7 @@ export default {
 @import '@/styles/_colors.scss';
 
 .closet-details {
-
-    background-color: $primary-color;
-    height: 96%;
-    overflow: auto;
+    max-height: calc(100% - 1.54rem);
 
     ul {
         list-style: none;

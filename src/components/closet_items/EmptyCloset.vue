@@ -16,15 +16,14 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 100%;
+
 
     img {
-        width: 35%;
-        height: 100%;
+
     }
 
     p {
-        width: 50%;
+
         height: fit-content;
         padding: 1rem;
         margin-left: 1rem;

@@ -48,10 +48,14 @@ export default{
     background-size:cover;
     font-family: 'Cormorant', serif;
     font-size: large;
-    height: 90%;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
 
     #app {
       height: 100%;
+      display: flex;
+      flex-direction: column;
 
       header {
         display: flex;
@@ -90,7 +94,7 @@ export default{
       }
 
       main {
-        height: 91%;
+        height: 100%;
       }
 
     }

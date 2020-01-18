@@ -36,10 +36,8 @@ export default {
 <style lang="scss">
 
     .add-form{
-        margin-left: 2%;
-        margin-top: 3%;
-        height: 97%;
-        width: 48%;
+
+
         display: flex;
         flex-direction: column;
 

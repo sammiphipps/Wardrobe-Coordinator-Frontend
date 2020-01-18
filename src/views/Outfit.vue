@@ -34,17 +34,14 @@ export default {
 <style lang="scss">
 
     .outfit{
-        margin-left: 2%;
-        margin-top: 3%;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        height: 96%;
-        width: 48%;
+        justify-content: center;
 
         div:only-child{
             img{
-                width: 30%;
-                height: 50%;
+
             }
         }
 
