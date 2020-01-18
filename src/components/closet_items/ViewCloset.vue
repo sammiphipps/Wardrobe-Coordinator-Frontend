@@ -101,4 +101,8 @@ export default {
 
     }
 
+    .closet:only-child{
+        width: calc(50% - 1.5rem);
+    }
+
 </style>
