@@ -16,18 +16,19 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-
+    align-items: center;
+    height: 100%;
 
     img {
-
+        width: 35%;
+        height: 90%;
     }
 
     p {
-
+        width: calc(50% - 1rem);
         height: fit-content;
         padding: 1rem;
         margin-left: 1rem;
-        align-self: center;
         text-align: center;
         background-color: $primary_color;
         border-radius: 1rem;
