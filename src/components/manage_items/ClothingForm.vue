@@ -116,16 +116,17 @@ export default {
 
             label {
                 display: inline-block;
-
+                width: 9rem;
             }
 
             input {
-
+                display: inline-block;
+                width: 17rem;
             }
 
             select {
                 box-sizing: border-box;
-
+                width: 17.5rem;
             }
         }
 

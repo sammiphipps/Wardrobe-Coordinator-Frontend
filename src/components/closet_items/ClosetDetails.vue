@@ -37,6 +37,8 @@ export default {
 
 .closet-details {
     max-height: calc(100% - 1.54rem);
+    background-color: $primary-color;
+    overflow: auto;
 
     ul {
         list-style: none;
@@ -50,6 +52,9 @@ export default {
             margin: 0.5rem;
             background-color: $card_color;
             border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
             cursor: pointer; 
         }
 

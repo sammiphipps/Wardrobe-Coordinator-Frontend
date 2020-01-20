@@ -39,12 +39,6 @@ export default {
         flex-direction: column;
         justify-content: center;
 
-        div:only-child{
-            img{
-
-            }
-        }
-
         img {
             padding: 0;
             background-color: transparent;

@@ -36,13 +36,14 @@ export default {
 <style lang="scss">
 
     .add-form{
-
-
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        width: calc(100% - 1.5rem - 1rem);
         display: flex;
         flex-direction: column;
 
         h2 {
-            margin: 0.75rem 0 0.5rem 0;
+            margin: 0.75rem 0 0.5rem 1.5rem;
         }
 
         button {

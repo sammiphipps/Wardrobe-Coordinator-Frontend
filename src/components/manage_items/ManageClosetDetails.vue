@@ -6,7 +6,7 @@
                 v-for="item in clothing_items" 
                 :key="item.id" 
             >
-                <span @click="removeItem(item.id)">
+                <span class="remove-button" @click="removeItem(item.id)">
                     <font-awesome-icon icon="times" size="xs"/>
                 </span>
                 <section @click="changeShowForm">
@@ -56,7 +56,7 @@ export default {
 @import '@/styles/_colors.scss';
 
 .closet-details {
-
+    max-height: calc(100% - 1.54rem);
     background-color: $primary-color;
     overflow: auto;
 
@@ -77,10 +77,14 @@ export default {
             height: fit-content;
             cursor: pointer; 
 
-            span {
+            .remove-button {
                 align-self: flex-end;
-                margin: -8% 0 0 0;
                 padding: 0;
+                width: 1rem;
+                height: 1rem;
+                display: flex;
+                justify-content: center;
+                margin-top: -0.5rem;
             }
 
             section{
@@ -103,10 +107,6 @@ export default {
 
             a {
                 color: black;
-
-                span: {
-
-                }
 
                 .icon{
                     padding: 1rem;

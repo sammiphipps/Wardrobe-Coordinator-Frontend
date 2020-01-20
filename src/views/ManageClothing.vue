@@ -90,7 +90,7 @@ export default {
 
 <style lang="scss">
     .manage_items {
-
+        height: 100%;
         display: flex;
     }
 </style>
