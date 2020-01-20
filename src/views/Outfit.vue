@@ -2,7 +2,10 @@
     <aside class="outfit">
         <OutfitTop v-if="top.image_url" :top="top" />
         <OutfitBottom v-if="bottom.image_url" :bottom="bottom" />
-        <button @click="clearOutfit">Clear</button>
+        <button @click="clearOutfit">
+            <font-awesome-icon icon="eraser"/>
+            Clear
+        </button>
     </aside>
 </template>
 
@@ -46,7 +49,7 @@ export default {
 
         button {
             width: fit-content;
-            padding: 0.25rem 1rem 0.25rem 1rem;
+            padding: 0.25rem 0.5rem 0.25rem 0.5rem;
             margin: 1rem;
             align-self: center;
         }
