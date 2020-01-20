@@ -5,6 +5,7 @@ import ViewCloset from "@/views/ViewCloset"
 import Outfit from '@/views/Outfit'
 import ManageClothing from '@/views/ManageClothing'
 import LoginScreen from '@/views/LoginScreen'
+import FavoriteOutfits from '@/views/FavoriteOutfits'
 
 Vue.use(VueRouter)
 
@@ -19,8 +20,8 @@ const routes = [
     name: 'closet',
     component: ViewCloset,
     children: [{
+      path: "",
       name: "outfit",
-      path: "/outfit",
       component: Outfit
     }]
   }, {
@@ -28,11 +29,20 @@ const routes = [
     name: 'manage clothing',
     component: ManageClothing,
     children: [{
-      name: 'edit clothing',
       path: '/manage_clothing/:id',
+      name: 'edit clothing',
       component: ManageClothing
     }]
-  },
+  },{
+    path: '/favorite_outfits',
+    name: "favorite outfits",
+    component: FavoriteOutfits,
+    children: [{
+      path: "",
+      name: "show outfit",
+      component: Outfit
+    }]
+  }
 ]
 
 const router = new VueRouter({

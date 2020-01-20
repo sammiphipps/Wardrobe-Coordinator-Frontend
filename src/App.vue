@@ -9,7 +9,7 @@
             <span>Outfit</span>
             <ul class="dropdown-content">
               <li><router-link :to="{name: 'outfit'}">Mix-n-Match</router-link></li>
-              <li>Favorites</li>
+              <li><router-link :to="{name: 'favorite outfits'}">Favorites</router-link></li>
             </ul>
           </li>
           <li class="nav-link">
