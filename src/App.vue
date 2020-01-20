@@ -1,12 +1,16 @@
 <template>
   <div id="app">
     <header>
-      <h1>Closet Organizer</h1>
+      <h1>Wardrobe Organizer</h1>
 
       <nav v-if="this.$route.path !== '/'">
-        <ul>
-          <li class="nav-link" >
-            <router-link :to="{name: 'outfit'}">Outfit Selector</router-link>
+        <ul class="nav-list">
+          <li class="nav-link dropdown">
+            <span>Outfit</span>
+            <ul class="dropdown-content">
+              <li><router-link :to="{name: 'outfit'}">Mix-n-Match</router-link></li>
+              <li>Favorites</li>
+            </ul>
           </li>
           <li class="nav-link">
             <router-link :to="{name: 'manage clothing'}">Manage Clothing</router-link>
@@ -69,26 +73,29 @@ export default{
         }
       
         nav {
+          background-color: $primary_color;
+          margin-right: 1rem;
+          border-radius: 0.5rem;
 
-          ul {
+          .nav-list {
             list-style: none;
             display: flex;
             flex-direction: row;
             padding: 0;
             margin: 0;
+          }
 
-            li{
-              padding: 0.5rem; 
+          .nav-list > li{
+            padding: 0.5rem; 
 
-              a {
-                color: black;
-                text-decoration: none;
-              }
+            a {
+              color: black;
+              text-decoration: none;
+            }
 
-              a:hover {
-                color: $highlight_color;
-                cursor: pointer;
-              }
+            a:hover {
+              color: hsl(17, 36%, 40%);
+              cursor: pointer;
             }
           }
         }
@@ -96,6 +103,39 @@ export default{
 
       main {
         height: 100%;
+      }
+
+      .dropdown{
+
+        .dropdown-content{ 
+          list-style:none;
+          margin: 0.5rem;
+          padding: 0.15rem 0.5rem 0.15rem 0.25rem;
+          display: none;
+          position: absolute;
+          width: auto;
+          height: auto;
+          right: 13.5rem;
+          left: auto;
+          background-color: $primary_color;
+          border-radius: 0.5rem;
+
+          li {
+            margin: 0;
+            padding: 0.25rem;
+            color: black;
+            text-align: right;
+          }
+        }
+      }
+
+      .dropdown:hover{
+        color: hsl(17, 36%, 40%);
+        cursor: pointer;
+      }
+
+      .dropdown:hover .dropdown-content{
+        display: block;
       }
 
     }
