@@ -9,7 +9,7 @@
 
 <script>
 import FavOutfitClosetDetails from '@/components/favorite_outfit/FavOutfitClosetDetails'
-import store from '@/store/index.js'
+import store from '@/store'
 
 export default {
     created(){

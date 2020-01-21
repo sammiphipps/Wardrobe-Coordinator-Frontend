@@ -67,7 +67,7 @@ export default new Vuex.Store({
     },
     fetchFavOutfits({commit}){
       const token = localStorage.getItem("token")
-      fetch("http://localhost:3000/user_outfits", {
+      return fetch("http://localhost:3000/user_outfits", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -76,7 +76,7 @@ export default new Vuex.Store({
       }).then(response => response.json())
         .then(outfits => {
           commit("setFavOutfits", outfits)
-        })
+        }).then(() => "Finished Loading")
     },
     outfitSelected({commit}, item){
       if(item.clothing_category.name == 'top'){
