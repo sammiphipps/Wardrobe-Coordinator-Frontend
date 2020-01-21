@@ -1,0 +1,55 @@
+<template>
+    <div class="fav-closet-details">
+        <ul>
+            <li v-for="outfit in outfits" :key="outfit.id">
+                <router-link :to="{name: 'show outfit'}">
+                    <OutfitCard :outfit="outfit" />
+                </router-link>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<script>
+import OutfitCard from '@/components/favorite_outfit/OutfitCard'
+
+export default {
+    components:{
+        OutfitCard
+    },
+    props: {
+        outfits: Array,
+    }
+}
+</script>
+
+<style lang="scss">
+@import '@/styles/_colors.scss';
+
+    .fav-closet-details {
+        max-height: calc(100% - 1.54rem);
+        background-color: $primary-color;
+        overflow: auto;
+        margin-top: 1.9rem;
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-flow: row wrap;
+            padding: 0;
+            margin: 0;
+
+            li{
+                padding: 0.5rem;
+                margin: 0.5rem;
+                background-color: $card_color;
+                border-radius: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+                cursor: pointer; 
+                
+            }
+        }
+    }
+</style>

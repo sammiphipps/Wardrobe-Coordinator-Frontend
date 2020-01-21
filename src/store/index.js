@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     clothing_items : [],
     top: {},
-    bottom: {}
+    bottom: {},
+    fav_outfits: []
   },
   getters: {
     clothing_items_by_category: (state) => (clothing_category) => {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     setBottom(state, clothing_item){
       state.bottom = clothing_item
+    },
+    setFavOutfits(state, outfits){
+      state.fav_outfits = outfits
     },
     addClothingItem(state, clothing_item){
       state.clothing_items = [...this.state.clothing_items, clothing_item]
@@ -59,6 +63,19 @@ export default new Vuex.Store({
         .then(response => response.json())
         .then(clothing_items => {
           commit("setClothingItems", clothing_items)
+        })
+    },
+    fetchFavOutfits({commit}){
+      const token = localStorage.getItem("token")
+      fetch("http://localhost:3000/user_outfits", {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        }
+      }).then(response => response.json())
+        .then(outfits => {
+          commit("setFavOutfits", outfits)
         })
     },
     outfitSelected({commit}, item){
