@@ -1,7 +1,7 @@
 <template>
     <div class="favorite-outfits">
         <div class="closet">
-            <FavOutfitClosetDetails :outfits="outfits"/>
+            <FavOutfitClosetDetails @viewOutfit="viewOutfit" :outfits="outfits"/>
         </div>
         <router-view />
     </div>
@@ -27,7 +27,14 @@ export default {
             return this.$store.state.fav_outfits
         }
     },
-
+    methods:{
+        viewOutfit(clothing_items){
+            this.$store.dispatch("clearOutfit")
+            clothing_items.map(clothing_item => {
+                this.$store.dispatch("outfitSelected", clothing_item)
+            })
+        }
+    }
 }
 </script>
 

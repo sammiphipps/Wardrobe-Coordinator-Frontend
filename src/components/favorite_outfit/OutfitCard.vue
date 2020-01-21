@@ -1,5 +1,5 @@
 <template>
-    <div class="outfit-card" >
+    <div class="outfit-card" :id="outfit.id">
         <img 
             v-for="item in outfit.clothing_items" 
             :key="item.id" 
@@ -23,7 +23,7 @@ export default {
         flex-direction: row;
         border-radius: 0.75rem;
         background-color: white;
-        
+
         img {
             width: 6rem;
             height: 6rem;

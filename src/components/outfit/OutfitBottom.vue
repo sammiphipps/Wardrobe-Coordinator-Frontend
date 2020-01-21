@@ -23,8 +23,6 @@ export default {
         align-items: center;
         justify-content: flex-start;
 
-
-
         img {
             width: 9rem;
             height: auto;

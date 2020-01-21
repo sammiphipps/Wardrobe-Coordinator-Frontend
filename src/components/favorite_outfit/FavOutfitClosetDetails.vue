@@ -3,7 +3,7 @@
         <ul>
             <li v-for="outfit in outfits" :key="outfit.id">
                 <router-link :to="{name: 'show outfit'}">
-                    <OutfitCard :outfit="outfit" />
+                    <OutfitCard @click.native="viewOutfit(outfit.clothing_items)" :outfit="outfit" />
                 </router-link>
             </li>
         </ul>
@@ -19,6 +19,11 @@ export default {
     },
     props: {
         outfits: Array,
+    },
+    methods:{
+        viewOutfit(clothing_items){
+            this.$emit("viewOutfit", clothing_items)
+        }
     }
 }
 </script>
