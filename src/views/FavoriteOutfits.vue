@@ -9,18 +9,26 @@
 
 <script>
 import FavOutfitClosetDetails from '@/components/favorite_outfit/FavOutfitClosetDetails'
+import store from '@/store/index.js'
 
 export default {
     created(){
         const token = localStorage.getItem('token')
         if(token == null){
             this.$router.replace({name: 'login'})
-        } else {
-            this.$store.dispatch("fetchFavOutfits")
         }
     },
     components:{
         FavOutfitClosetDetails
+    },
+    beforeRouteEnter: (to, from, next) => {
+        store.dispatch("fetchFavOutfits").then(res => {
+            if(res == "Finished Loading"){
+                next()
+            } else {
+                next(false)
+            }
+        })
     },
     computed: {
         outfits(){
