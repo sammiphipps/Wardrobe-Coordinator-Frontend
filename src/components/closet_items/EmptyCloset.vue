@@ -25,8 +25,8 @@ export default {
     img {
         margin-top: 1rem;
         margin-bottom: 1rem;
-        height: 30rem;
-        width: 23rem;
+        height: 80vh;
+        width: 35vw;
     }
 
     p {
