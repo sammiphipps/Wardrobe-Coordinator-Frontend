@@ -56,6 +56,7 @@ export default {
 @import '@/styles/_colors.scss';
 
 .closet-details {
+    min-height: 12rem;
     max-height: calc(100% - 1.54rem);
     background-color: $primary-color;
     overflow: auto;
