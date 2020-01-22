@@ -21,11 +21,12 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100%;
 
     img {
-        width: 35%;
-        height: 90%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: 80vh;
+        width: 35vw;
     }
 
     p {
@@ -37,6 +38,5 @@ export default {
         background-color: $primary_color;
         border-radius: 1rem;
     }
-
 }
 </style>

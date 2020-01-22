@@ -46,17 +46,17 @@ export default{
   }
 
   body{
-    background-image: url("https://i.pinimg.com/originals/28/11/5c/28115c5b099c02f76f7b3308c33bfae3.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
     font-family: 'Cormorant', serif;
     font-size: large;
     margin: 0;
     box-sizing: border-box;
-    height: 100%;
+    min-height: 100%;
 
     #app {
-      height: 100%;
+      background-image: url("https://i.pinimg.com/originals/28/11/5c/28115c5b099c02f76f7b3308c33bfae3.jpg");
+      background-repeat: no-repeat;
+      background-size:cover;
+      min-height: -webkit-fill-available;
       display: flex;
       flex-direction: column;
 
@@ -100,9 +100,6 @@ export default{
         }
       }
 
-      main {
-        height: 100%;
-      }
     }
   }
   

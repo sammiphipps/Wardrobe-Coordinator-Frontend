@@ -26,7 +26,7 @@ export default {
                 color: formData.get('color'),
                 clothing_category_id: formData.get('clothing_category')
             }
-            event.target.reset
+            event.target.reset()
             this.$emit("addItem", data)
         }
     }
