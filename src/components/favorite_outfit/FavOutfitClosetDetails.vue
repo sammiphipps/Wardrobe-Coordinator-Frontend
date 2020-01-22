@@ -11,6 +11,8 @@
             </li>
         </ul>
     </div>
+
+
 </template>
 
 <script>
@@ -18,7 +20,7 @@ import OutfitCard from '@/components/favorite_outfit/OutfitCard'
 
 export default {
     components:{
-        OutfitCard
+        OutfitCard,
     },
     props: {
         outfits: Array,

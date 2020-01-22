@@ -8,6 +8,8 @@
     </div>
     <EmptyCloset 
         v-else 
+        message="You currently don't have anything in your closet. 
+                Please go to the Manage Clothing tab to add your items."
     />
 </template>
 

@@ -8,7 +8,7 @@
           <li class="nav-link dropdown">
             <span>Outfit</span>
             <ul class="dropdown-content">
-              <li><router-link :to="{name: 'outfit'}">Mix-n-Match</router-link></li>
+              <li><router-link :to="{name: 'outfit'}">Closet</router-link></li>
               <li><router-link :to="{name: 'show outfit'}">Favorites</router-link></li>
             </ul>
           </li>
