@@ -95,9 +95,6 @@ export default {
                 this.clothing_type = ""
                 this.color = ""
             }
-        },
-        resetImageSrc(){
-            this.image_url = ""
         }
     },
     watch:{
@@ -147,7 +144,7 @@ export default {
             background-color: transparent;
             min-width: 9rem;
             max-width: 11rem;
-            height: auto;
+            max-height: 19rem;
         }
 
         .preview-image > img:hover{
