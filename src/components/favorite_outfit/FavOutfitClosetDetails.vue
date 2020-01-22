@@ -38,7 +38,7 @@ export default {
 @import '@/styles/_colors.scss';
 
     .fav-closet-details {
-        max-height: calc(100% - 1.54rem);
+        height: 85vh;
         background-color: $primary-color;
         overflow: auto;
         margin-top: 1.9rem;

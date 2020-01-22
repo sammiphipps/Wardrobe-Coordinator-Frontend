@@ -52,6 +52,7 @@ export default {
 <style lang="scss">
     .outfit{
         width: 100%;
+        height: calc(87vh - 1.5rem);
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -40,6 +40,7 @@ export default {
         margin-top: 1rem;
         margin-bottom: 1.5rem;
         width: calc(100% - 1.5rem - 1rem);
+        max-height: calc(87vh - 1.5rem);
         display: flex;
         flex-direction: column;
 
