@@ -1,5 +1,5 @@
 <template>
-    <div class="favorite-outfits">
+    <div class="favorite-outfits" v-if="outfits.length !== 0">
         <div class="closet">
             <FavOutfitClosetDetails 
                 @removeFavOutfit="removeFavOutfit"
@@ -9,10 +9,18 @@
         </div>
         <router-view />
     </div>
+    <EmptyCloset 
+        v-else 
+        message="You currently don't have any outfits saved. 
+                To save an outfit please go to the Closet tab and favorite those outfits 
+                that you like. If there is nothing within your closet, please go to the Manage 
+                Clothing tab to add your items."
+    />
 </template>
 
 <script>
 import FavOutfitClosetDetails from '@/components/favorite_outfit/FavOutfitClosetDetails'
+import EmptyCloset from '@/components/closet_items/EmptyCloset'
 import store from '@/store'
 
 export default {
@@ -23,7 +31,8 @@ export default {
         }
     },
     components:{
-        FavOutfitClosetDetails
+        FavOutfitClosetDetails,
+        EmptyCloset
     },
     beforeRouteEnter: (to, from, next) => {
         store.dispatch("fetchFavOutfits").then(res => {

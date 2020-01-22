@@ -1,12 +1,16 @@
 <template>
     <div class="empty-closet">
         <img src="@/assets/empty.jpeg"/>
-        <p>You currently don't have anything in your closet. Please go to the Manage Clothing tab 
-        to add your items.</p>
+        <p>{{message}}</p>
     </div>
 </template>
 
 <script>
+export default {
+    props: {
+        message: String
+    }
+}
 </script>
 
 <style lang="scss">
