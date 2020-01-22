@@ -5,13 +5,12 @@
 
       <nav v-if="this.$route.path !== '/'">
         <ul class="nav-list">
-          <li class="nav-link dropdown">
-            <span>Outfit</span>
-            <ul class="dropdown-content">
-              <li><router-link :to="{name: 'outfit'}">Closet</router-link></li>
-              <li><router-link :to="{name: 'show outfit'}">Favorites</router-link></li>
-            </ul>
+          <li class="nav-link">
+            <router-link :to="{name: 'outfit'}">Wardrobe</router-link>
           </li>
+          <li class="nav-link">
+            <router-link :to="{name: 'show outfit'}">Favorite Outfits</router-link>
+          </li> 
           <li class="nav-link">
             <router-link :to="{name: 'manage clothing'}">Manage Clothing</router-link>
           </li>
@@ -104,42 +103,7 @@ export default{
       main {
         height: 100%;
       }
-
-      .dropdown{
-
-        .dropdown-content{ 
-          list-style:none;
-          margin: 0.5rem;
-          padding: 0.15rem 0.5rem 0.15rem 0.25rem;
-          display: none;
-          position: absolute;
-          width: auto;
-          height: auto;
-          right: 13.5rem;
-          left: auto;
-          background-color: $primary_color;
-          border-radius: 0.5rem;
-
-          li {
-            margin: 0;
-            padding: 0.25rem;
-            color: black;
-            text-align: right;
-          }
-        }
-      }
-
-      .dropdown:hover{
-        color: hsl(17, 36%, 40%);
-        cursor: pointer;
-      }
-
-      .dropdown:hover .dropdown-content{
-        display: block;
-      }
-
     }
-
   }
   
 </style>
