@@ -22,7 +22,7 @@ const routes = [
     children: [{
       path: "",
       name: "outfit",
-      component: Outfit
+      component: Outfit,
     }]
   }, {
     path: '/manage_clothing',

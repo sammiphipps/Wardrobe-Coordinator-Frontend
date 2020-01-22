@@ -11,12 +11,14 @@
             @updateItem="updateItem"
             :category="this.category"
             :default_values="clothing_item"
+            :message="message"
         />
 
         <AddClothingForm 
             v-else-if="showForm && clothing_item_id == undefined"
             @addItem="addItem"
             :category="this.category"
+            :message="message"
         />
     </div>
 </template>
@@ -51,7 +53,8 @@ export default {
     data(){
         return {
             showForm: false,
-            category: ""
+            category: "",
+            message: "",
         }
     },
     computed: {
@@ -69,16 +72,17 @@ export default {
         changeShowForm(category){
             this.showForm = true
             this.category = category
+            this.message = ""
         },
         addItem(data){
-            this.$store.dispatch("addClothingItem", data)
+            this.$store.dispatch("addClothingItem", data).then(() => this.message = "Item has been added to your closet.")
         },
         updateItem(id, data){
             const payload = {
                 id: id,
                 clothing_item: data
             }
-            this.$store.dispatch("updateClothingItem", payload).then(() => alert("Item has been updated."))
+            this.$store.dispatch("updateClothingItem", payload).then(() => this.message = "Item has been updated.")
         },
         removeItem(id){
             this.showForm = false
