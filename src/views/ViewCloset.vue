@@ -6,29 +6,39 @@
         />
         <router-view />
     </div>
-    <EmptyCloset v-else/>
+    <EmptyCloset 
+        v-else 
+    />
 </template>
 
 <script>
 import ViewCloset from '@/components/closet_items/ViewCloset'
 import EmptyCloset from '@/components/closet_items/EmptyCloset'
+import store from '@/store'
 
 export default {
     created(){
         const token = localStorage.getItem('token')
         if(token == null){
             this.$router.replace({name: 'login'})
-        } else {
-            this.$store.dispatch("fetchClothingItems")
         }
     },
     components: {
         ViewCloset,
         EmptyCloset
     },
+    beforeRouteEnter: (to, from, next) => {
+        store.dispatch("fetchClothingItems").then(res => {
+            if(res == "Finished Loading"){
+                next()
+            } else {
+                next(false)
+            }
+        })
+    },
     computed: {
         clothing_items(){
-            return this.$store.state.clothing_items
+            return this.$store.state.clothing_items 
         }
     },
     methods: {
@@ -40,10 +50,8 @@ export default {
 </script>
 
 <style lang="scss">
-
     .view-closet{
         height: 100%;
         display: flex;
     }
-
 </style>

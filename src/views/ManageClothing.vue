@@ -25,20 +25,28 @@
 import ViewCloset from '@/components/closet_items/ViewCloset'
 import UpdateClothingForm from '@/components/manage_items/UpdateClothingForm'
 import AddClothingForm from '@/components/manage_items/AddClothingForm'
+import store from '@/store'
 
 export default {
     created(){
         const token = localStorage.getItem('token')
         if(token == null){
             this.$router.replace({name: 'login'})
-        } else {
-            this.$store.dispatch("fetchClothingItems")
         }
     },
     components: {
         ViewCloset,
         UpdateClothingForm,
         AddClothingForm
+    },
+    beforeRouteEnter: (to, from, next) => {
+        store.dispatch("fetchClothingItems").then(res => {
+            if(res == "Finished Loading"){
+                next()
+            } else {
+                next(false)
+            }
+        })
     },
     data(){
         return {

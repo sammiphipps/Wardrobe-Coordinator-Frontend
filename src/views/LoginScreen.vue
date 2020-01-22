@@ -39,7 +39,7 @@ export default {
                 .then(information => {
                 if(!information.error){
                     localStorage.setItem("token", information.token)
-                    this.$router.replace({name: "closet"})
+                    this.$router.replace({name: "outfit"})
                 } else {
                     alert("Username or password is incorrect.")
                 }

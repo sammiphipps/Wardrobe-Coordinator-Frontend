@@ -2,12 +2,12 @@
     <aside class="outfit">
         <OutfitTop v-if="top.image_url" :top="top" />
         <OutfitBottom v-if="bottom.image_url" :bottom="bottom" />
-        <div class="outfit-button-container">
+        <div class="outfit-button-container" v-if="path != '/favorite_outfits/'">
             <button @click="clearOutfit">
                 <font-awesome-icon icon="eraser"/>
                 Clear
             </button>
-            <button >
+            <button @click="favOutfit">
                 <font-awesome-icon :icon="['far', 'star']"/>
                 Favorite
             </button>
@@ -20,6 +20,9 @@ import OutfitTop from '@/components/outfit/OutfitTop'
 import OutfitBottom from '@/components/outfit/OutfitBottom'
 
 export default {
+    created(){
+        this.clearOutfit()
+    },
     components:{
         OutfitTop,
         OutfitBottom
@@ -30,18 +33,23 @@ export default {
         },
         bottom(){
             return this.$store.state.bottom
+        },
+        path(){
+            return this.$route.path
         }
     },
     methods:{
         clearOutfit(){
             this.$store.dispatch("clearOutfit")
+        },
+        favOutfit(){
+            this.$store.dispatch("favOutfit")
         }
     }
 }
 </script>
 
 <style lang="scss">
-
     .outfit{
         width: 100%;
         display: flex;

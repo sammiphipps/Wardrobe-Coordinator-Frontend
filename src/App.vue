@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>Wardrobe Organizer</h1>
+      <h1>Wardrobe Coordinator</h1>
 
       <nav v-if="this.$route.path !== '/'">
         <ul class="nav-list">
@@ -9,7 +9,7 @@
             <span>Outfit</span>
             <ul class="dropdown-content">
               <li><router-link :to="{name: 'outfit'}">Mix-n-Match</router-link></li>
-              <li><router-link :to="{name: 'favorite outfits'}">Favorites</router-link></li>
+              <li><router-link :to="{name: 'show outfit'}">Favorites</router-link></li>
             </ul>
           </li>
           <li class="nav-link">
