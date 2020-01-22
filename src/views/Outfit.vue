@@ -43,7 +43,7 @@ export default {
             this.$store.dispatch("clearOutfit")
         },
         favOutfit(){
-            this.$store.dispatch("favOutfit")
+            this.$store.dispatch("favOutfit").then(() => alert("Item has been saved."))
         }
     }
 }
@@ -52,6 +52,7 @@ export default {
 <style lang="scss">
     .outfit{
         width: 100%;
+        height: calc(87vh - 1.5rem);
         display: flex;
         flex-direction: column;
         justify-content: center;

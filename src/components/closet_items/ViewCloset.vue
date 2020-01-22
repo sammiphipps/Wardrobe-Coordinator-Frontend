@@ -75,7 +75,7 @@ export default {
     .closet {
         margin: 0 0 1.5rem 1.5rem;
         width: calc(100% - 1.5rem);
-        height: calc(100% - 1.5rem);
+        max-height: calc(87vh - 1.5rem);
 
         .tabs{
             overflow:hidden;

@@ -78,7 +78,7 @@ export default {
                 id: id,
                 clothing_item: data
             }
-            this.$store.dispatch("updateClothingItem", payload)
+            this.$store.dispatch("updateClothingItem", payload).then(() => alert("Item has been updated."))
         },
         removeItem(id){
             this.showForm = false
