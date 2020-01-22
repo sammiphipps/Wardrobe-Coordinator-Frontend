@@ -140,7 +140,7 @@ export default new Vuex.Store({
       }).then(response => response.json())
         .then(item => {
           commit("updateClothingItem", item)
-        }).then(() => alert("Item has been updated."))
+        })
     },
     removeClothingItem({commit}, id){
       const token = localStorage.getItem("token")
@@ -183,7 +183,7 @@ export default new Vuex.Store({
           }).then(response => response.json())
             .then(outfitItemReturn => {
               commit("addFavOutfit", outfitItemReturn)
-            }).then(() => alert("Item has been saved."))
+            })
         })
     },
     removeFavOutfit({commit}, outfit_id){

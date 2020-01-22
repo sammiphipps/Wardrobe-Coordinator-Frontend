@@ -43,7 +43,7 @@ export default {
             this.$store.dispatch("clearOutfit")
         },
         favOutfit(){
-            this.$store.dispatch("favOutfit")
+            this.$store.dispatch("favOutfit").then(() => alert("Item has been saved."))
         }
     }
 }
