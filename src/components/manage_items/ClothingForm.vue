@@ -95,7 +95,7 @@ export default {
                 this.clothing_type = ""
                 this.color = ""
             }
-        }
+        },
     },
     watch:{
         category(value){
@@ -144,7 +144,7 @@ export default {
             background-color: transparent;
             min-width: 9rem;
             max-width: 11rem;
-            max-height: 19rem;
+            max-height: 15rem;
         }
 
         .preview-image > img:hover{
