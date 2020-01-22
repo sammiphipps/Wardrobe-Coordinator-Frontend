@@ -95,6 +95,9 @@ export default {
                 this.clothing_type = ""
                 this.color = ""
             }
+        },
+        resetImageSrc(){
+            this.image_url = ""
         }
     },
     watch:{

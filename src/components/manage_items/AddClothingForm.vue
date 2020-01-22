@@ -1,7 +1,7 @@
 <template>
     <form class="add-form" @submit="addItem">
         <h2>Add Item</h2>
-        <ClothingForm :category="category"/>
+        <ClothingForm ref="insideForm" :category="category"/>
         <button type="submit">Add Clothing Item</button>
     </form>
 </template>
@@ -27,6 +27,7 @@ export default {
                 clothing_category_id: formData.get('clothing_category')
             }
             event.target.reset()
+            this.$refs.insideForm.resetImageSrc()
             this.$emit("addItem", data)
         }
     }
