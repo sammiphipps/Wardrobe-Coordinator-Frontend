@@ -1,5 +1,5 @@
 <template>
-    <div class="outfit-card" :id="outfit.id">
+    <div class="outfit-card">
         <img 
             v-for="item in outfit.clothing_items" 
             :key="item.id" 

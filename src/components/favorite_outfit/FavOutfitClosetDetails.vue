@@ -2,6 +2,9 @@
     <div class="fav-closet-details">
         <ul>
             <li v-for="outfit in outfits" :key="outfit.id">
+                <span class="remove-button" @click="removeOutfit(outfit.id)">
+                    <font-awesome-icon icon="times" size="xs"/>
+                </span>
                 <router-link :to="{name: 'show outfit'}">
                     <OutfitCard @click.native="viewOutfit(outfit.clothing_items)" :outfit="outfit" />
                 </router-link>
@@ -23,6 +26,9 @@ export default {
     methods:{
         viewOutfit(clothing_items){
             this.$emit("viewOutfit", clothing_items)
+        },
+        removeOutfit(outfit_id){
+            this.$emit("removeFavOutfit", outfit_id)
         }
     }
 }
@@ -54,6 +60,15 @@ export default {
                 height: fit-content;
                 cursor: pointer; 
                 
+                .remove-button {
+                    align-self: flex-end;
+                    padding: 0;
+                    width: 1rem;
+                    height: 1rem;
+                    display: flex;
+                    justify-content: center;
+                    margin-top: -0.5rem;
+                }
             }
         }
     }

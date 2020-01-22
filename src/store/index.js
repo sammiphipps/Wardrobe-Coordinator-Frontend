@@ -61,6 +61,12 @@ export default new Vuex.Store({
     },
     addFavOutfit(state, outfit){
       state.fav_outfits = [...this.state.fav_outfits, outfit]
+    },
+    removeFavOutfit(state, id){
+      const newFavOutfitArray = state.fav_outfits.filter(item => {
+        return item.id !== id
+      })
+      state.fav_outfits = newFavOutfitArray
     }
   },
   actions: {
@@ -170,6 +176,18 @@ export default new Vuex.Store({
               commit("addFavOutfit", outfitItemReturn)
             }).then(() => alert("Item has been saved"))
         })
+    },
+    removeFavOutfit({commit}, outfit_id){
+      const token = localStorage.getItem("token")
+      fetch("http://localhost:3000/outfits", {
+        method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+      }).then(() => {
+        commit("removeFavOutfit", outfit_id)
+      })
     }
   },
   modules: {

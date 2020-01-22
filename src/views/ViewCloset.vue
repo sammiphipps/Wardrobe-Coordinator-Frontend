@@ -50,10 +50,8 @@ export default {
 </script>
 
 <style lang="scss">
-
     .view-closet{
         height: 100%;
         display: flex;
     }
-
 </style>

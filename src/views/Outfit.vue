@@ -50,7 +50,6 @@ export default {
 </script>
 
 <style lang="scss">
-
     .outfit{
         width: 100%;
         display: flex;

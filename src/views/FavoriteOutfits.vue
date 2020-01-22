@@ -1,7 +1,11 @@
 <template>
     <div class="favorite-outfits">
         <div class="closet">
-            <FavOutfitClosetDetails @viewOutfit="viewOutfit" :outfits="outfits"/>
+            <FavOutfitClosetDetails 
+                @removeFavOutfit="removeFavOutfit"
+                @viewOutfit="viewOutfit" 
+                :outfits="outfits"
+            />
         </div>
         <router-view />
     </div>
@@ -41,6 +45,9 @@ export default {
             clothing_items.map(clothing_item => {
                 this.$store.dispatch("outfitSelected", clothing_item)
             })
+        },
+        removeFavOutfit(outfit_id){
+            this.$store.dispatch("removeFavOutfit", outfit_id)
         }
     }
 }
@@ -51,6 +58,4 @@ export default {
         height: 100%;
         display: flex;
     }
-
-
 </style>
