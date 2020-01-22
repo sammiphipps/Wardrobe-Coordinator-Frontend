@@ -39,6 +39,15 @@ export default new Vuex.Store({
       state.bottom = clothing_item
     },
     setFavOutfits(state, outfits){
+      outfits.forEach(outfit => {
+        outfit.clothing_items.sort(item => {
+          if(item.clothing_category.name == "top"){
+            return -1 
+          } else {
+            return 1
+          }
+        })
+      })
       state.fav_outfits = outfits
     },
     addClothingItem(state, clothing_item){
@@ -179,7 +188,7 @@ export default new Vuex.Store({
     },
     removeFavOutfit({commit}, outfit_id){
       const token = localStorage.getItem("token")
-      fetch("http://localhost:3000/outfits", {
+      fetch(`http://localhost:3000/outfits/${outfit_id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`,
