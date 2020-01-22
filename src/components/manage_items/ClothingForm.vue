@@ -134,11 +134,20 @@ export default {
             align-self: center;
         }
 
-        .preview-image img{
-            background-color: transparent;
+        .preview-image {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
         }
 
-        .preview-image img:hover{
+        .preview-image > img{
+            background-color: transparent;
+            min-width: 9rem;
+            max-width: 11rem;
+            height: auto;
+        }
+
+        .preview-image > img:hover{
             opacity: 1;
         }
 
