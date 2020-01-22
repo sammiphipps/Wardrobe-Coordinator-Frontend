@@ -16,6 +16,16 @@ export default new Vuex.Store({
     },
     clothing_item: (state) => (id) => {
       return state.clothing_items.find(item => item.id == id)
+    },
+    currentOutfit: (state) => {
+      const currentOufit = []
+      if(state.top.id !== undefined){
+        currentOufit.push(state.top)
+      }
+      if(state.bottom.id !== undefined){
+        currentOufit.push(state.bottom)
+      }
+      return currentOufit
     }
   },
   mutations: {
@@ -49,6 +59,9 @@ export default new Vuex.Store({
       })
       state.clothing_items = newClothingItemArray
     },
+    addFavOutfit(state, outfit){
+      state.fav_outfits = [...this.state.fav_outfits, outfit]
+    }
   },
   actions: {
     fetchClothingItems({commit}){
@@ -119,7 +132,8 @@ export default new Vuex.Store({
       fetch(`http://localhost:3000/clothing_items/${id}`, {
         method: "DELETE",
         headers: {
-          "Authorization": `Bearer ${token}`
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
         }
       }).then(() => {
         commit("removeClothingItem", id)
@@ -128,6 +142,34 @@ export default new Vuex.Store({
     clearOutfit({commit}){
       commit("setTop", {})
       commit("setBottom", {})
+    },
+    favOutfit({getters, commit}){
+      const token = localStorage.getItem("token")
+      const currentOutfit = getters.currentOutfit 
+      const currentOutfitIds = currentOutfit.map(item => item.id)
+      fetch("http://localhost:3000/outfits", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+      }).then(response => response.json())
+        .then(outfit => {
+          fetch("http://localhost:3000/multiple_outfit_items", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${token}`,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({outfit_item: {
+              outfit_id: outfit.id,
+              items: currentOutfitIds
+            }})
+          }).then(response => response.json())
+            .then(outfitItemReturn => {
+              commit("addFavOutfit", outfitItemReturn)
+            }).then(() => alert("Item has been saved"))
+        })
     }
   },
   modules: {

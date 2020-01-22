@@ -7,7 +7,7 @@
                 <font-awesome-icon icon="eraser"/>
                 Clear
             </button>
-            <button>
+            <button @click="favOutfit">
                 <font-awesome-icon :icon="['far', 'star']"/>
                 Favorite
             </button>
@@ -41,6 +41,9 @@ export default {
     methods:{
         clearOutfit(){
             this.$store.dispatch("clearOutfit")
+        },
+        favOutfit(){
+            this.$store.dispatch("favOutfit")
         }
     }
 }
