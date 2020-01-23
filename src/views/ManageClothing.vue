@@ -80,7 +80,7 @@ export default {
                 .then(() => {
                     setTimeout(function(){
                         this.message = ""
-                    }.bind(this), 5000)
+                    }.bind(this), 4000)
                 })
         },
         updateItem(id, data){
@@ -93,7 +93,7 @@ export default {
                 .then(() => {
                     setTimeout(function(){
                         this.message = ""
-                    }.bind(this), 5000)
+                    }.bind(this), 4000)
                 })
         },
         removeItem(id){
