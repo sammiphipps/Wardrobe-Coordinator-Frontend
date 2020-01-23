@@ -1,24 +1,11 @@
-# closet-organizer-frontend
+# Wardrobe Coordinator
 
-## Project setup
-```
-npm install
-```
+Wardrobe Coordinator is an application where you can store images of your clothing 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Motivation
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Technology Used
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Installation
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Future Feature Implementations
