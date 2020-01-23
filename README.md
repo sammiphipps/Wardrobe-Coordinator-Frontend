@@ -4,7 +4,7 @@ The Wardrobe Coordinator is a web application that will allow users to keep traa
 
 ## Instructions 
 1. Before using this application, ensure that the backend is up and running
-    *The backend can be found at the following link: https://github.com/sammiphipps/Wardrobe-Coordinator-Backend
+    * The backend can be found at the following link: https://github.com/sammiphipps/Wardrobe-Coordinator-Backend
 2. Fork and clone this repo in a folder
 3. Npm install to ensure you have all the dependencies
 4. Start the application using npm run serve
