@@ -75,14 +75,26 @@ export default {
             this.message = ""
         },
         addItem(data){
-            this.$store.dispatch("addClothingItem", data).then(() => this.message = "Item has been added to your closet.")
+            this.$store.dispatch("addClothingItem", data)
+                .then(() => this.message = "Item has been added to your closet.")
+                .then(() => {
+                    setTimeout(function(){
+                        this.message = ""
+                    }.bind(this), 4000)
+                })
         },
         updateItem(id, data){
             const payload = {
                 id: id,
                 clothing_item: data
             }
-            this.$store.dispatch("updateClothingItem", payload).then(() => this.message = "Item has been updated.")
+            this.$store.dispatch("updateClothingItem", payload)
+                .then(() => this.message = "Item has been updated.")
+                .then(() => {
+                    setTimeout(function(){
+                        this.message = ""
+                    }.bind(this), 4000)
+                })
         },
         removeItem(id){
             this.showForm = false
