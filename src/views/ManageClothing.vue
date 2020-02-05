@@ -12,6 +12,7 @@
             :category="this.category"
             :default_values="clothing_item"
             :message="message"
+            :clothing_category_ids="clothing_category_ids"
         />
 
         <AddClothingForm 
@@ -19,6 +20,7 @@
             @addItem="addItem"
             :category="this.category"
             :message="message"
+            :clothing_category_ids="clothing_category_ids"
         />
     </div>
 </template>
@@ -34,6 +36,14 @@ export default {
         const token = localStorage.getItem('token')
         if(token == null){
             this.$router.replace({name: 'login'})
+        } else {
+            fetch("http://localhost:3000/clothing_categories")
+                .then(response => response.json())
+                .then(clothing_categories => {
+                    return clothing_categories.map(category => {
+                        return this.clothing_category_ids[category.name] = category.id
+                    })
+                })
         }
     },
     components: {
@@ -55,6 +65,7 @@ export default {
             showForm: false,
             category: "",
             message: "",
+            clothing_category_ids: {}
         }
     },
     computed: {
