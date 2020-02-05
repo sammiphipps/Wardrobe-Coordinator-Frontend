@@ -20,8 +20,8 @@
                 v-model.number="category_id"
             >
                 <option value="" disabled>Please select a category</option>
-                <option :value="categories['top']">Top</option>
-                <option :value="categories['bottom']">Bottom</option>
+                <option :value="category_info['top']">Top</option>
+                <option :value="category_info['bottom']">Bottom</option>
             </select>
         </fieldset>
         <fieldset class="inside-form">
@@ -57,16 +57,16 @@
 <script>
 export default {
     mounted(){
-        this.category_id = this.getCategoryId(this.category)
+        this.category_id = this.getCategoryId(this.category_selected)
 
         if(this.default_values !== undefined){
             this.setData(this.default_values)
         }
     },
     props:{
-        category: String,
+        category_selected: String,
         default_values: Object,
-        categories: Object
+        category_info: Object
     },
     data(){
         return {
@@ -77,8 +77,8 @@ export default {
         }
     },
     methods:{
-        getCategoryId(category){
-            if(category == "bottom"){
+        getCategoryId(category_selected){
+            if(category_selected == "bottom"){
                 return 2
             } else {
                 return 1
@@ -99,7 +99,7 @@ export default {
         },
     },
     watch:{
-        category(value){
+        category_selected(value){
             this.category_id = this.getCategoryId(value)
         },
         default_values(value){

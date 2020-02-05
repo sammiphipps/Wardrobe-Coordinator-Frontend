@@ -9,18 +9,18 @@
         <UpdateClothingForm 
             v-if="showForm && clothing_item_id"
             @updateItem="updateItem"
-            :category="this.category"
+            :category_selected="this.category"
             :default_values="clothing_item"
             :message="message"
-            :categories="categories"
+            :category_info="category_info"
         />
 
         <AddClothingForm 
             v-else-if="showForm && clothing_item_id == undefined"
             @addItem="addItem"
-            :category="this.category"
+            :category_selected="this.category"
             :message="message"
-            :categories="categories"
+            :category_info="category_info"
         />
     </div>
 </template>
@@ -69,7 +69,7 @@ export default {
         clothing_item(){
             return this.$store.getters.clothing_item(this.clothing_item_id)
         },
-        categories(){
+        category_info(){
             return this.$store.state.categories
         }
     },

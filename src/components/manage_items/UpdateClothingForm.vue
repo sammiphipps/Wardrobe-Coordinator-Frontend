@@ -5,8 +5,8 @@
             <h2>Update Item</h2>
             <ClothingForm 
                 :default_values="default_values" 
-                :category="category"
-                :categories="categories"
+                :category_selected="category_selected"
+                :category_info="category_info"
             />
             <button type="submit">Update</button>
         </form>
@@ -21,10 +21,10 @@ export default {
         ClothingForm
     },
     props:{
-        category: String,
+        category_selected: String,
         default_values: Object,
         message: String,
-        categories: Object
+        category_info: Object
     },
     methods:{
         updateItem(event){

@@ -5,8 +5,8 @@
             <h2>Add Item</h2>
             <ClothingForm 
                 ref="insideForm" 
-                :category="category"
-                :categories="categories"
+                :category_selected="category_selected"
+                :category_info="category_info"
             />
             <button type="submit">Add Clothing Item</button>
         </form>
@@ -21,9 +21,9 @@ export default {
         ClothingForm
     },
     props:{
-        category: String,
+        category_selected: String,
         message: String,
-        categories: Object
+        category_info: Object
     },
     methods:{
         addItem(event){
