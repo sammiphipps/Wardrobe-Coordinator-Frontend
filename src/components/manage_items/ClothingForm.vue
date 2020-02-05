@@ -20,8 +20,8 @@
                 v-model.number="category_id"
             >
                 <option value="" disabled>Please select a category</option>
-                <option :value="clothing_category_ids['top']">Top</option>
-                <option :value="clothing_category_ids['bottom']">Bottom</option>
+                <option :value="categories['top']">Top</option>
+                <option :value="categories['bottom']">Bottom</option>
             </select>
         </fieldset>
         <fieldset class="inside-form">
@@ -66,7 +66,7 @@ export default {
     props:{
         category: String,
         default_values: Object,
-        clothing_category_ids: Object
+        categories: Object
     },
     data(){
         return {

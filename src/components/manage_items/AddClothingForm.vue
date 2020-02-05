@@ -6,7 +6,7 @@
             <ClothingForm 
                 ref="insideForm" 
                 :category="category"
-                :clothing_category_ids="clothing_category_ids"
+                :categories="categories"
             />
             <button type="submit">Add Clothing Item</button>
         </form>
@@ -23,7 +23,7 @@ export default {
     props:{
         category: String,
         message: String,
-        clothing_category_ids: Object
+        categories: Object
     },
     methods:{
         addItem(event){

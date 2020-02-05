@@ -8,7 +8,8 @@ export default new Vuex.Store({
     clothing_items : [],
     top: {},
     bottom: {},
-    fav_outfits: []
+    fav_outfits: [],
+    categories: {}
   },
   getters: {
     clothing_items_by_category: (state) => (clothing_category) => {
@@ -49,6 +50,11 @@ export default new Vuex.Store({
         })
       })
       state.fav_outfits = outfits
+    },
+    setCategories(state, clothing_categories){
+      clothing_categories.map(category => {
+        state.categories[category.name] = category.id
+      })
     },
     addClothingItem(state, clothing_item){
       state.clothing_items = [...this.state.clothing_items, clothing_item]
@@ -105,6 +111,13 @@ export default new Vuex.Store({
         .then(outfits => {
           commit("setFavOutfits", outfits)
         }).then(() => "Finished Loading")
+    },
+    fetchCategories({commit}){
+      fetch("http://localhost:3000/clothing_categories")
+      .then(response => response.json())
+      .then(clothing_categories => {
+        commit("setCategories", clothing_categories)
+      })
     },
     outfitSelected({commit}, item){
       if(item.clothing_category.name == 'top'){

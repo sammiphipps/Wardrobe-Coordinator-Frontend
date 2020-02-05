@@ -12,7 +12,7 @@
             :category="this.category"
             :default_values="clothing_item"
             :message="message"
-            :clothing_category_ids="clothing_category_ids"
+            :categories="categories"
         />
 
         <AddClothingForm 
@@ -20,7 +20,7 @@
             @addItem="addItem"
             :category="this.category"
             :message="message"
-            :clothing_category_ids="clothing_category_ids"
+            :categories="categories"
         />
     </div>
 </template>
@@ -36,14 +36,6 @@ export default {
         const token = localStorage.getItem('token')
         if(token == null){
             this.$router.replace({name: 'login'})
-        } else {
-            fetch("http://localhost:3000/clothing_categories")
-                .then(response => response.json())
-                .then(clothing_categories => {
-                    return clothing_categories.map(category => {
-                        return this.clothing_category_ids[category.name] = category.id
-                    })
-                })
         }
     },
     components: {
@@ -54,7 +46,7 @@ export default {
     beforeRouteEnter: (to, from, next) => {
         store.dispatch("fetchClothingItems").then(res => {
             if(res == "Finished Loading"){
-                next()
+                store.dispatch("fetchCategories").then(() => next())
             } else {
                 next(false)
             }
@@ -65,7 +57,6 @@ export default {
             showForm: false,
             category: "",
             message: "",
-            clothing_category_ids: {}
         }
     },
     computed: {
@@ -77,6 +68,9 @@ export default {
         },
         clothing_item(){
             return this.$store.getters.clothing_item(this.clothing_item_id)
+        },
+        categories(){
+            return this.$store.state.categories
         }
     },
     methods:{

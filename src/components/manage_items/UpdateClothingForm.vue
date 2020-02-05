@@ -6,7 +6,7 @@
             <ClothingForm 
                 :default_values="default_values" 
                 :category="category"
-                :clothing_category_ids="clothing_category_ids"
+                :categories="categories"
             />
             <button type="submit">Update</button>
         </form>
@@ -24,7 +24,7 @@ export default {
         category: String,
         default_values: Object,
         message: String,
-        clothing_category_ids: Object
+        categories: Object
     },
     methods:{
         updateItem(event){
