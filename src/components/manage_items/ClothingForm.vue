@@ -78,11 +78,7 @@ export default {
     },
     methods:{
         getCategoryId(category_selected){
-            if(category_selected == "bottom"){
-                return 2
-            } else {
-                return 1
-            }
+            return this.category_info[category_selected]
         },
         setData(value){
             if(value !== undefined){
