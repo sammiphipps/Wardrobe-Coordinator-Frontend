@@ -3,7 +3,11 @@
         <p :class="{addFormMessageShow: message, addFormMessageHide: !message}"> {{message}}</p>
         <form @submit="addItem">
             <h2>Add Item</h2>
-            <ClothingForm ref="insideForm" :category="category"/>
+            <ClothingForm 
+                ref="insideForm" 
+                :category_selected="category_selected"
+                :category_info="category_info"
+            />
             <button type="submit">Add Clothing Item</button>
         </form>
     </div>
@@ -17,8 +21,9 @@ export default {
         ClothingForm
     },
     props:{
-        category: String,
-        message: String
+        category_selected: String,
+        message: String,
+        category_info: Object
     },
     methods:{
         addItem(event){

@@ -3,7 +3,11 @@
         <p :class="{updateFormMessageShow: message, updateFormMessageHide: !message}"> {{message}}</p>
         <form @submit="updateItem">
             <h2>Update Item</h2>
-            <ClothingForm :default_values="default_values" :category="category"/>
+            <ClothingForm 
+                :default_values="default_values" 
+                :category_selected="category_selected"
+                :category_info="category_info"
+            />
             <button type="submit">Update</button>
         </form>
     </div>
@@ -17,9 +21,10 @@ export default {
         ClothingForm
     },
     props:{
-        category: String,
+        category_selected: String,
         default_values: Object,
-        message: String
+        message: String,
+        category_info: Object
     },
     methods:{
         updateItem(event){

@@ -9,16 +9,18 @@
         <UpdateClothingForm 
             v-if="showForm && clothing_item_id"
             @updateItem="updateItem"
-            :category="this.category"
+            :category_selected="this.category"
             :default_values="clothing_item"
             :message="message"
+            :category_info="category_info"
         />
 
         <AddClothingForm 
             v-else-if="showForm && clothing_item_id == undefined"
             @addItem="addItem"
-            :category="this.category"
+            :category_selected="this.category"
             :message="message"
+            :category_info="category_info"
         />
     </div>
 </template>
@@ -44,7 +46,7 @@ export default {
     beforeRouteEnter: (to, from, next) => {
         store.dispatch("fetchClothingItems").then(res => {
             if(res == "Finished Loading"){
-                next()
+                store.dispatch("fetchCategories").then(() => next())
             } else {
                 next(false)
             }
@@ -66,6 +68,9 @@ export default {
         },
         clothing_item(){
             return this.$store.getters.clothing_item(this.clothing_item_id)
+        },
+        category_info(){
+            return this.$store.state.categories
         }
     },
     methods:{
