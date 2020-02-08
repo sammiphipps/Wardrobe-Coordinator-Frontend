@@ -1,6 +1,6 @@
 # Wardrobe Coordinator Frontend
 
-The Wardrobe Coordinator is a web application that will allow users to keep traack of any clothing items that they currently have. Once added the user is able to view any outfit combination from the items that they have entereed. If there are any outfits that the user likes and would like to remember for an upcoming event, it can be favorited and viewed within the Favorite Outfits tab. 
+The Wardrobe Coordinator is a web application that will allow users to keep track of any clothing items that they currently have. Once added the user is able to view any outfit combination from the items that they have entereed. If there are any outfits that the user likes and would like to remember for an upcoming event, it can be favorited and viewed within the Favorite Outfits tab. 
 
 ## Instructions 
 1. Before using this application, ensure that the backend is up and running
