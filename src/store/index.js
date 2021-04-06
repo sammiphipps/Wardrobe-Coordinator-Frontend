@@ -87,7 +87,7 @@ export default new Vuex.Store({
   actions: {
     fetchClothingItems({commit}){
       const token = localStorage.getItem("token")
-      return fetch("http://localhost:3000/user_clothing_items", {
+      return fetch("https://wardrobe-coordinator.herokuapp.com/user_clothing_items", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -101,7 +101,7 @@ export default new Vuex.Store({
     },
     fetchFavOutfits({commit}){
       const token = localStorage.getItem("token")
-      return fetch("http://localhost:3000/user_outfits", {
+      return fetch("https://wardrobe-coordinator.herokuapp.com/user_outfits", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -113,7 +113,7 @@ export default new Vuex.Store({
         }).then(() => "Finished Loading")
     },
     fetchCategories({commit}){
-      fetch("http://localhost:3000/clothing_categories")
+      fetch("https://wardrobe-coordinator.herokuapp.com/clothing_categories")
       .then(response => response.json())
       .then(clothing_categories => {
         commit("setCategories", clothing_categories)
@@ -128,7 +128,7 @@ export default new Vuex.Store({
     },
     addClothingItem({commit}, clothing_item){
       const token = localStorage.getItem("token")
-      fetch("http://localhost:3000/clothing_items", {
+      fetch("https://wardrobe-coordinator.herokuapp.com/clothing_items", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -143,7 +143,7 @@ export default new Vuex.Store({
     },
     updateClothingItem({commit}, information){
       const token = localStorage.getItem("token")
-      fetch(`http://localhost:3000/clothing_items/${information.id}`, {
+      fetch(`https://wardrobe-coordinator.herokuapp.com/clothing_items/${information.id}`, {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -157,7 +157,7 @@ export default new Vuex.Store({
     },
     removeClothingItem({commit}, id){
       const token = localStorage.getItem("token")
-      fetch(`http://localhost:3000/clothing_items/${id}`, {
+      fetch(`https://wardrobe-coordinator.herokuapp.com/clothing_items/${id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -175,7 +175,7 @@ export default new Vuex.Store({
       const token = localStorage.getItem("token")
       const currentOutfit = getters.currentOutfit 
       const currentOutfitIds = currentOutfit.map(item => item.id)
-      fetch("http://localhost:3000/outfits", {
+      fetch("https://wardrobe-coordinator.herokuapp.com/outfits", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,
@@ -183,7 +183,7 @@ export default new Vuex.Store({
         },
       }).then(response => response.json())
         .then(outfit => {
-          fetch("http://localhost:3000/multiple_outfit_items", {
+          fetch("https://wardrobe-coordinator.herokuapp.com/multiple_outfit_items", {
             method: "POST",
             headers: {
               "Authorization": `Bearer ${token}`,
@@ -201,7 +201,7 @@ export default new Vuex.Store({
     },
     removeFavOutfit({commit}, outfit_id){
       const token = localStorage.getItem("token")
-      fetch(`http://localhost:3000/outfits/${outfit_id}`, {
+      fetch(`https://wardrobe-coordinator.herokuapp.com/outfits/${outfit_id}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`,

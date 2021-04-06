@@ -56,7 +56,7 @@ export default{
       background-image: url("https://i.pinimg.com/originals/28/11/5c/28115c5b099c02f76f7b3308c33bfae3.jpg");
       background-repeat: no-repeat;
       background-size:cover;
-      min-height: -webkit-fill-available;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
 
@@ -100,6 +100,9 @@ export default{
         }
       }
 
+      main {
+        height: 100%;
+      }
     }
   }
   

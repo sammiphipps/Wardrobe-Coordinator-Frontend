@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         loginSubmission(submissionData){
-            fetch("http://localhost:3000/login", {
+            fetch("https://wardrobe-coordinator.herokuapp.com/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -49,7 +49,7 @@ export default {
             this.showSignup = true
         },
         createAccountSubmission(submissionData){
-            fetch("http://localhost:3000/users", {
+            fetch("https://wardrobe-coordinator.herokuapp.com/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
